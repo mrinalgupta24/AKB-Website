@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTwitter, FaFacebookF, FaInstagram, FaGithub } from "react-icons/fa";
-
+import logo from "../../images/logo.svg"
 const Footer = () => {
   return (
     <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-12 text-left">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
             <img
-              src="../../images/logo2.png"
+              src={logo}
               className="h-14"
               alt="Logo"
             />
