@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "../../assets/images/donation1.svg"; // Ensure you use the bgImage if needed
+import bgImage from "../../images/donation1.svg"; // Ensure you use the bgImage if needed
 
 const DonateUs = () => {
   return (

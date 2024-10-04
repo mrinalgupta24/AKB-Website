@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "../../assets/images/volunteer.png"; // Adjust the path as necessary
+import bgImage from "../../images/volunteer.png"; // Adjust the path as necessary
 
 const CTATwo = () => {
   return (
