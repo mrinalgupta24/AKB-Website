@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Frontend Repo
 =======
 # React + Vite
