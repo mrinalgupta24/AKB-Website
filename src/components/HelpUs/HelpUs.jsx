@@ -1,11 +1,13 @@
 import React from "react";
+import bgImage from "../../images/bg1.jpg";
+import Image from "../../images/helpus.jpg";
 
 const HelpUs = () => {
   return (
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
+        <div className="mx-auto w-full max-w-full px-12 py-8 mt-12">
           {/* Heading Container */}
           <div className="mb-8 text-center md:mb-12">
             {/* Heading */}
@@ -13,7 +15,7 @@ const HelpUs = () => {
               How can you help us?
             </h2>
             {/* Subheading */}
-            <p className="mt-4 text-gray-500 text-base">
+            <p className="mt-4 font-bold text-green-800">
               At AKB, you can make a meaningful impact in the lives of others by
               donating or joining us as a volunteer. Whether you help by giving
               your time, spreading our message, or contributing funds, your
@@ -24,16 +26,25 @@ const HelpUs = () => {
           {/* Contents */}
           <div className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-16 md:grid-cols-3 md:gap-4">
             {/* Content */}
-            <div className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8">
+            <div
+              className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="mb-3">
-                <h6 className="text-base font-bold">Make a Donation</h6>
+                <h6 className="text-lg font-bold text-center text-green-900">
+                  Make a Donation
+                </h6>
               </div>
               <img
-                src="https://assets.website-files.com/6458c625291a94a195e6cf3a/64772c025e9047a330ad448e_Rectangle%2034.png"
-                alt=""
+                src={Image}
+                alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4">
+              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center ">
                 <div>
                   Your generosity goes beyond the act of giving—it creates
                   change. AKB is committed to using every donation responsibly,
@@ -42,17 +53,26 @@ const HelpUs = () => {
                 </div>
               </div>
             </div>
-            {/* Repeat the same for other content blocks */}
-            <div className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8">
+
+            <div
+              className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="mb-3">
-                <h6 className="text-base font-bold">Join as a Volunteer</h6>
+                <h6 className="text-lg font-bold text-center text-green-900">
+                  Join as a Volunteer
+                </h6>
               </div>
               <img
-                src="https://assets.website-files.com/6458c625291a94a195e6cf3a/64772c025e9047a330ad448e_Rectangle%2034.png"
-                alt=""
+                src={Image}
+                alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4">
+              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Volunteering is a powerful way to shape the community you wish
                   to see. By giving your time and energy, you actively
@@ -61,16 +81,25 @@ const HelpUs = () => {
                 </div>
               </div>
             </div>
-            <div className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8">
+            <div
+              className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="mb-3">
-                <h6 className="text-base font-bold">Spread the Word</h6>
+                <h6 className="text-lg font-bold text-center text-green-900">
+                  Spread the Word
+                </h6>
               </div>
               <img
-                src="https://assets.website-files.com/6458c625291a94a195e6cf3a/64772c025e9047a330ad448e_Rectangle%2034.png"
-                alt=""
+                src={Image}
+                alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4">
+              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Raising awareness is the first step towards action. Share our
                   story, spread our message, and help us inspire others to join

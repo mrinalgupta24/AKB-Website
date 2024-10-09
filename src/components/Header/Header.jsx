@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.svg"
+import logo from "../../images/logo.svg";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -9,15 +9,10 @@ const Header = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 mx-auto w-full max-w-screen-2xl bg-[#f9fafb] border-b border-gray-400">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="fixed top-0 z-50 w-full bg-[#f9fafb] border-b border-gray-700">
+      <div className="flex flex-wrap items-center justify-between p-4 mx-auto w-full">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src={logo}
-            className="h-14"
-            alt="Logo"
-            
-          />
+          <img src={logo} className="h-14" alt="Logo" />
         </a>
         <button
           onClick={handleNavToggle}
@@ -49,11 +44,11 @@ const Header = () => {
           } w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+          <ul className="font-bold flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#f9fafb] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-white bg-green-800 rounded md:bg-transparent md:text-green-800 md:p-0"
                 aria-current="page"
               >
                 Home
@@ -62,7 +57,7 @@ const Header = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 About Us
               </a>
@@ -70,7 +65,7 @@ const Header = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 Initiatives
               </a>
@@ -78,7 +73,7 @@ const Header = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 Gallery
               </a>
@@ -86,7 +81,7 @@ const Header = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 Contact Us
               </a>
@@ -99,4 +94,3 @@ const Header = () => {
 };
 
 export default Header;
-

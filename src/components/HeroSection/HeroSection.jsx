@@ -1,24 +1,36 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import bgImage from "../../images/bg1.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-7xl mx-auto mt-20">
+    <section
+      className="w-full px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-20"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       {/* Changed items-center to items-start */}
       <div className="text-left">
         {" "}
         {/* Added text-left for left alignment */}
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
+        <span className="block px-1 mb-4 text-base md:text-base text-green-800 font-bold">
           Better every day
         </span>
         <h3 className="text-4xl md:text-6xl font-semibold">
           Let's change it up a bit
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
-          error repellat voluptatibus ad.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, modi
+          illo iste facilis veniam magnam expedita accusantium iure delectus
+          provident quia tempora repellendus laudantium dolorum. Delectus ea
+          architecto culpa, sed placeat tempora facilis cupiditate voluptas,
+          molestiae saepe optio. Libero distinctio assumenda pariatur magni
+          voluptas qui corporis officia accusamus ullam aspernatur.
         </p>
-        <button className="bg-black text-white font-medium py-3 px-4 rounded transition-all hover:bg-black active:scale-95">
+        <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
           Find a class
         </button>
       </div>

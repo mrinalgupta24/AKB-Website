@@ -3,7 +3,7 @@ import "./App.css";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Header from "./components/Header/Header";
 import AboutUs from "./components/AboutUs/AboutUs";
-import Facts from "./components/Facts/Facts";
+// import Facts from "./components/Facts/Facts";
 import OurMissions from "./components/OurMissons/OurMissions";
 import OurFundraiser from "./components/OurFundraisers/OurFundraiser";
 import CTA from "./components/CTA/CTA";
@@ -12,6 +12,8 @@ import HelpUs from "./components/HelpUs/HelpUs";
 import Footer from "./components/Footer/Footer";
 import CTATwo from "./components/CTA2/CTATwo";
 import Gallery from "./components/Gallery/Gallery";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,14 +23,14 @@ function App() {
       <Header />
       <HeroSection />
       <AboutUs />
-      <Facts />
+      {/* <Facts /> */}
       <OurMissions />
       <OurFundraiser />
       <CTA />
       <DonateUs />
       <HelpUs />
-      <CTATwo/>
-      <Gallery/>
+      <CTATwo />
+      <Gallery />
       <Footer />
     </>
   );

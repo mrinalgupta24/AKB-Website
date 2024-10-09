@@ -1,15 +1,15 @@
 import React from "react";
-import bgImage from "../../images/image.svg"; // Adjust the path as necessary
+import bgImage from "../../images/image.png"; // Adjust the path as necessary
 
 const CTA = () => {
   return (
     <div>
       <section>
         {/* Container */}
-        <div className="px-5 py-16 md:px-10 md:py-20">
+        <div>
           {/* Component */}
           <div
-            className="relative mx-auto w-full max-w-full px-4 py-32 text-center"
+            className="relative mx-auto w-full max-w-full px-4 md:py:28 py-32 text-center"
             style={{
               backgroundImage: `url(${bgImage})`,
               backgroundSize: "cover",
@@ -21,14 +21,14 @@ const CTA = () => {
             <div
               className="absolute inset-0"
               style={{
-                backgroundColor: "#D1E9F6E5", // Light blue color with opacity
-                opacity: 0.9, // Optional: Adjust for more/less transparency
+                backgroundColor: "#eaf4f4",
+                opacity: 0.9,
               }}
             ></div>
 
             {/* Content */}
             <div className="relative z-10">
-              <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold md:mb-8 md:text-5xl lg:mb-10 text-blue-900">
+              <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold md:mb-8 md:text-5xl lg:mb-10 text-green-900">
                 Start a Fundraiser!
               </h2>
               <p className="mx-auto mb-6 max-w-xl text-sm text-gray-500 sm:text-base md:mb-8">
@@ -39,7 +39,7 @@ const CTA = () => {
               </p>
 
               {/* Centered View Showreel Button */}
-              <div className="flex justify-center mb-6">
+              {/* <div className="flex justify-center mb-6">
                 <a href="#" className="flex flex-row items-center font-bold">
                   <img
                     src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a94bd85e6cf98_ArrowUpRight%20(4).svg"
@@ -48,14 +48,11 @@ const CTA = () => {
                   />
                   <p className="text-sm sm:text-base">Read More</p>
                 </a>
-              </div>
+              </div> */}
 
-              <a
-                href="#"
-                className="mb-4 inline-block bg-black px-6 py-3 text-center font-semibold text-white rounded-md hover:bg-gray-800 transition-colors duration-300"
-              >
+              <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
                 Get Started
-              </a>
+              </button>
             </div>
           </div>
         </div>

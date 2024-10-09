@@ -3,7 +3,7 @@ import { FaTwitter, FaFacebookF, FaInstagram, FaGithub } from "react-icons/fa";
 import logo from "../../images/logo.svg"
 const Footer = () => {
   return (
-    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+    <section className="mx-auto w-full max-w-full px-8 py-8 bg-[#f9fafb]  sm:pt-16 lg:pt-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-12 text-left">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
@@ -164,7 +164,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="mt-16 mb-10 border-gray-200" />
+        <hr className="mt-16 mb-10 border-gray-700" />
 
         <p className="text-sm text-center text-gray-600">
           © Copyright 2024, All Rights Reserved by AKB
