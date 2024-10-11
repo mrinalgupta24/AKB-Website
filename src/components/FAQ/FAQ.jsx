@@ -58,15 +58,15 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="relative my-3 w-full rounded-md border border-green-800 px-12 py-8"
+              className="relative my-2 w-full rounded-md border border-green-800 px-12 py-4" // Keeping the adjusted padding
             >
               <div
                 className="flex justify-between items-center cursor-pointer" // Add cursor-pointer for better UX
                 onClick={() => toggleFaq(index)}
               >
-                <div className="max-w-3xl">
+                <div className="max-w-4xl">
                   <h2
-                    className={`font-bold text-xl ${
+                    className={`font-bold text-base ${
                       openFaqIndex === index ? "text-green-900" : "text-black"
                     }`}
                   >
@@ -79,14 +79,14 @@ const FAQ = () => {
                   )}
                 </div>
                 <span
-                  className={`absolute right-5 top-9 ${
+                  className={`absolute right-5 top-5 ${
                     openFaqIndex === index ? "text-green-900" : "text-black"
                   }`}
                 >
                   {openFaqIndex === index ? (
-                    <AiOutlineMinus size={24} />
+                    <AiOutlineMinus size={20} />
                   ) : (
-                    <AiOutlinePlus size={24} />
+                    <AiOutlinePlus size={20} />
                   )}
                 </span>
               </div>
