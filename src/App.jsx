@@ -7,12 +7,15 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Donation from "./pages/Donation";
+import ScrollToTop from "./ScrollToTop";
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />

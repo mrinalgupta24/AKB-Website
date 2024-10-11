@@ -5,14 +5,16 @@ const LowCostMission = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="w-full max-w-full px-12 py-8 mt-12 mx-auto">
+        <div className="w-full max-w-6xl px-12 py-8 mt-12 mx-auto">
           {/* Component */}
           <div className="flex flex-col gap-8 sm:gap-20 lg:flex-row-reverse lg:items-center lg:justify-center">
             {/* Item */}
-            <div className="lg:text-left">
+            <div className="lg:text-left text-center">
+              {" "}
+              {/* Center align on mobile */}
               {/* Centered Title */}
-              <h2 className="mb-6 max-w-3xl mx-auto text-3xl font-bold text-center md:text-5xl">
-                The Secret to Our Low-Cost Missions
+              <h2 className="mb-6 max-w-4xl mx-auto text-3xl font-bold md:text-5xl">
+                The Secret to Our Low Cost Missions
               </h2>
               {/* Left-aligned Paragraph */}
               <p className="mb-2 flex items-center text-sm text-gray-500 sm:text-base md:mb-6 lg:mb-8">

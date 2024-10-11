@@ -1,34 +1,16 @@
 import React, { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import FAQs from "../../images/aboutus.jpg";
-
-const FAQItem = ({ question, answer, isOpen, toggle }) => {
-  return (
-    <div className="border-b border-gray-200 py-4">
-      <button
-        className="flex justify-between items-center w-full text-left"
-        onClick={toggle}
-      >
-        <h3
-          className={`text-lg font-medium ${
-            isOpen ? "text-[#287150]" : "text-gray-900"
-          }`}
-        >
-          {question}
-        </h3>
-        {isOpen ? (
-          <FaMinus className="text-[#287150]" />
-        ) : (
-          <FaPlus className="text-gray-900" />
-        )}
-      </button>
-      {isOpen && <p className="mt-2 text-sm text-gray-600">{answer}</p>}
-    </div>
-  );
-};
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"; // Importing icons from react-icons
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    if (openFaqIndex === index) {
+      setOpenFaqIndex(null);
+    } else {
+      setOpenFaqIndex(index);
+    }
+  };
 
   const faqs = [
     {
@@ -62,53 +44,63 @@ const FAQ = () => {
     },
   ];
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section>
-      <div className="w-full max-w-full px-12 py-8 mt-12 mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Section: Image */}
-          <div className="hidden lg:block flex items-start justify-center lg:justify-start">
-            <img
-              src={FAQs}
-              alt="Customer Support"
-              className="w-[600px] h-[450px] object-cover rounded-lg border border-gray-200 dark:border-gray-700"
-            />
-          </div>
-
-          {/* Right Section: FAQs */}
-          <div className="text-center lg:text-left">
-            {/* Subtitle */}
-            <h2 className="text-base font-semibold leading-7 text-[#287150]">
-              Most Asked Questions
-            </h2>
-
-            {/* Title */}
-            <h2 className="mt-2 text-4xl font-bold text-gray-900">FAQs</h2>
-
-            {/* Description */}
-            <p className="mt-4 text-gray-600">
-              Trusted in More Than 100 Countries And 5 Million Customers.
-              Transact Easily And Quickly With Just One Click.
-            </p>
-
-            {/* FAQ Items */}
-            <div className="mt-6 space-y-6">
-              {faqs.map((faq, index) => (
-                <FAQItem
-                  key={index}
-                  question={faq.question}
-                  answer={faq.answer}
-                  isOpen={openIndex === index}
-                  toggle={() => toggleFAQ(index)}
-                />
-              ))}
-            </div>
-          </div>
+      <div className="mx-auto flex w-full max-w-full flex-col items-center justify-center px-5 py-16 md:px-10 md:py-20">
+        <div className="mx-auto flex max-w-xl flex-col items-center justify-center px-6 text-center lg:max-w-3xl lg:px-10">
+          <h1 className="max-w-3xl mx-auto text-3xl font-bold text-center md:text-5xl">
+            Frequently Asked Questions
+          </h1>
         </div>
+
+        {/* FAQs */}
+        <div className="mt-10 flex w-full max-w-4xl flex-col">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="relative my-3 w-full rounded-md border border-green-800 px-12 py-8"
+            >
+              <div
+                className="flex justify-between items-center cursor-pointer" // Add cursor-pointer for better UX
+                onClick={() => toggleFaq(index)}
+              >
+                <div className="max-w-3xl">
+                  <h2
+                    className={`font-bold text-xl ${
+                      openFaqIndex === index ? "text-green-900" : "text-black"
+                    }`}
+                  >
+                    {faq.question}
+                  </h2>
+                  {openFaqIndex === index && (
+                    <p className="font-inter mt-4 text-base font-light text-gray-500">
+                      {faq.answer}
+                    </p>
+                  )}
+                </div>
+                <span
+                  className={`absolute right-5 top-9 ${
+                    openFaqIndex === index ? "text-green-900" : "text-black"
+                  }`}
+                >
+                  {openFaqIndex === index ? (
+                    <AiOutlineMinus size={24} />
+                  ) : (
+                    <AiOutlinePlus size={24} />
+                  )}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="font-inter mx-auto mt-12 text-center text-base text-gray-500">
+          Can’t find the answer you’re looking for? Reach out to our
+          <a href="" className="text-black font-bold">
+            {" "}
+            customer support team.
+          </a>
+        </p>
       </div>
     </section>
   );
