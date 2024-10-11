@@ -39,7 +39,7 @@ const CostBreakdown = () => {
               {/* Cost and Note Column with Green Border */}
               <div className="flex justify-between items-center border border-green-900 p-2">
                 <span className="text-gray-700 font-medium">
-                  - {entry.cost}
+                {entry.cost}
                 </span>
                 {entry.note && (
                   <span className="ml-2 text-green-800 font-bold">{entry.note}</span>
