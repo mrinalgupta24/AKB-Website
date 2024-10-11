@@ -15,7 +15,7 @@ const DonateUsFormOne = () => {
     <div className="w-full max-w-6xl px-12 py-8 mt-12 mx-auto">
       <section>
         <div className="w-full flex-col justify-center items-center gap-4 flex">
-          <h2 className="text-3xl font-bold md:text-5xl text-center lg:text-left">
+          <h2 className="text-3xl font-bold md:text-5xl text-center ">
             Feed a Hungry Soul Today
           </h2>
           <p className="mx-auto mt-2 text-center font-bold md:text-center lg:text-center text-green-800">
