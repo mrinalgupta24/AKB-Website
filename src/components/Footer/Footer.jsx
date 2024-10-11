@@ -1,17 +1,13 @@
 import React from "react";
 import { FaTwitter, FaFacebookF, FaInstagram, FaGithub } from "react-icons/fa";
-import logo from "../../images/logo.svg"
+import logo from "../../images/logo.svg";
 const Footer = () => {
   return (
-    <section className="mx-auto w-full max-w-full px-8 py-8 bg-[#f9fafb]  sm:pt-16 lg:pt-24">
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <section>
+      <div className="w-full max-w-full px-12 py-8 mt-12 mx-auto bg-[#f9fafb]">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-12 text-left">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <img
-              src={logo}
-              className="h-14"
-              alt="Logo"
-            />
+            <img src={logo} className="h-14" alt="Logo" />
             <p className="text-base leading-relaxed text-gray-600 mt-7">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
@@ -157,7 +153,7 @@ const Footer = () => {
                 />
               </div>
 
-              <button className="bg-black text-white font-medium py-3 px-4 rounded transition-all hover:bg-black active:scale-95 mt-6">
+              <button className="flex justify-center mt-8 items-center bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
                 Subscribe
               </button>
             </form>

@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import bgImage from "../../images/bg1.jpg";
 import Image from "../../images/volunteer.png";
+import { Link } from "react-router-dom";
 
 const OurMissions = () => {
   // Slider settings for mobile
@@ -26,8 +27,7 @@ const OurMissions = () => {
 
         {/* Content */}
         {/* Mobile Slider: Only shows on small screens */}
-        <div className="sm:block md:hidden lg:hidden"
-        >
+        <div className="sm:block md:hidden lg:hidden">
           <Slider {...sliderSettings}>
             {Array.from({ length: 6 }).map((_, index) => (
               <div
@@ -53,9 +53,11 @@ const OurMissions = () => {
                 </p>
                 {/* Learn More Button */}
                 <div className="mt-4 text-center">
-                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
-                    Learn More
-                  </button>
+                  <Link to="/donation">
+                    <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                      View More
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -91,9 +93,11 @@ const OurMissions = () => {
               </p>
               {/* Learn More Button */}
               <div className="mt-4 text-center">
-                <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
-                  Learn More
-                </button>
+                <Link to="/donation">
+                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                    View More
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

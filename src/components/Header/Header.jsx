@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../images/logo.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -46,13 +47,13 @@ const Header = () => {
         >
           <ul className="font-bold flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#f9fafb] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
             <li>
-              <a
-                href="#"
+              <Link
+                to="/home"
                 className="block py-2 px-3 text-white bg-green-800 rounded md:bg-transparent md:text-green-800 md:p-0"
                 aria-current="page"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <a
