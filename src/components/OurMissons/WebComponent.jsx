@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Image from "../../images/volunteer.png";
 import bgImage from "../../images/bg1.jpg";
 
@@ -29,25 +28,30 @@ const WebComponent = () => {
   ];
 
   return (
-    <section className="py-24">
+    <section className="py-24 flex justify-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="font-manrope text-5xl font-bold text-gray-900 text-center mb-16">
           Our Missions
         </h2>
-        <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
+        <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:justify-between lg:gap-x-8">
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="group w-full max-lg:max-w-xl lg:w-1/3 border border-gray-300 rounded-2xl"
+              className="group w-full max-lg:max-w-xl lg:w-1/3 border border-gray-300 rounded-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 <img
                   src={blog.image}
                   alt="blogs tailwind section"
-                  className="rounded-t-2xl w-full object-cover"
+                  className="rounded-t-2xl w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
                 />
               </div>
-              <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50">
+              <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50 flex flex-col items-center text-center opacity-0 animate-fadeIn">
                 <span className="text-green-800 font-bold mb-3 block">
                   {blog.price}
                 </span>
@@ -65,20 +69,25 @@ const WebComponent = () => {
           ))}
         </div>
 
-        <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 mt-12">
+        <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:justify-between lg:gap-x-8 mt-12">
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="group w-full max-lg:max-w-xl lg:w-1/3 border border-gray-300 rounded-2xl"
+              className="group w-full max-lg:max-w-xl lg:w-1/3 border border-gray-300 rounded-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 <img
                   src={blog.image}
                   alt="blogs tailwind section"
-                  className="rounded-t-2xl w-full object-cover"
+                  className="rounded-t-2xl w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
                 />
               </div>
-              <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50">
+              <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50 flex flex-col items-center text-center opacity-0 animate-fadeIn">
                 <span className="text-green-800 font-bold mb-3 block">
                   {blog.price}
                 </span>
