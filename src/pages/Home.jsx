@@ -32,7 +32,7 @@ const Home = () => {
       <div data-aos="fade-left">
         <DonarBenefits />
       </div>
-      <div data-aos="zoom-in">
+      <div data-aos="zoom-out">
         <OurMissions />
       </div>
       <div data-aos="zoom-out">

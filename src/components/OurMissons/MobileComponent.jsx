@@ -70,14 +70,14 @@ const MobileComponent = () => {
                 />
                 {/* Text content */}
                 <div className="px-8">
-                  <h3 className="mb-2 text-lg font-semibold">
+                  <h3 className="mb-2 text-base font-semibold">
                     {mission.title}
                   </h3>
-                  <p className="mb-4 text-gray-500">{mission.description}</p>
+                  <p className="mb-4 text-gray-500 text-sm">{mission.description}</p>
                   <p className="text-sm text-green-800 font-bold">
                     {mission.price}
                   </p>
-                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-3 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-2 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
                     Learn More
                   </button>
                 </div>
