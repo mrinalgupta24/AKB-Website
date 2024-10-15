@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroSection from "../components/HeroSection/HeroSection";
 import AboutUs from "../components/AboutUs/AboutUs";
-import OurMissions from "../components/OurMissons/OurMissions";
+import OurMissions from "../components/OurMissions/OurMissions";
 import OurFundraiser from "../components/OurFundraisers/OurFundraiser";
 import CTA from "../components/CTA/CTA";
 import DonateUs from "../components/DonateUs/DonateUs";

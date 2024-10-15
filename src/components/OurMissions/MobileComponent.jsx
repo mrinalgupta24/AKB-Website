@@ -51,7 +51,7 @@ const MobileComponent = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
+        <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-12">
           {/* Title */}
           <h2 className="text-center mb-8 text-3xl font-bold">Our Missions</h2>
           {/* Content */}
@@ -77,8 +77,8 @@ const MobileComponent = () => {
                   <p className="text-sm text-green-800 font-bold">
                     {mission.price}
                   </p>
-                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-2 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
-                    Learn More
+                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-2 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                    View More
                   </button>
                 </div>
               </a>
