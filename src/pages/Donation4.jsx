@@ -1,20 +1,18 @@
 import React from "react";
 import AboutDonation from "../components/AboutDonation/AboutDonation";
-import DonateUsFormOne from "../components/DonateUsForm/DonateUsFormOne";
+import DonateUsFormTwo from "../components/DonateUsForm/DonateUsFormTwo";
 import LowCostMission from "../components/LowCostMission/LowCostMission";
 import FAQ from "../components/FAQ/FAQ";
-import CostBreakdown from "../components/CostBreakdown/CostBreakdown";
 
-const Donation = () => {
+const Donation4 = () => {
   return (
     <div>
       <AboutDonation />
-      <DonateUsFormOne />
-      <CostBreakdown />
+      <DonateUsFormTwo />
       <LowCostMission />
       <FAQ />
     </div>
   );
 };
 
-export default Donation;
+export default Donation4;

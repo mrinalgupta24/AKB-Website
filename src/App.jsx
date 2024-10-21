@@ -11,6 +11,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Donation from "./pages/Donation";
 import ScrollToTop from "./ScrollToTop";
+import Donation2 from "./pages/Donation2";
+import Donation3 from "./pages/Donation3";
+import Donation4 from "./pages/Donation4";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +35,9 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/donation" element={<Donation />} />
+          <Route path="/donation2" element={<Donation2/>} />
+          <Route path="/donation3" element={<Donation3/>} />
+          <Route path="/donation4" element={<Donation4/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

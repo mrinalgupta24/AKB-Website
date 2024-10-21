@@ -9,6 +9,7 @@ const MobileComponent = () => {
         "Feed a hungry stomach and protect the poor from malnutrition and starvation.",
       price: "₹13 / Person",
       image: Image,
+      link: "/donation", // Link to be opened in a new tab
     },
     {
       title: "Support Education for Children",
@@ -16,6 +17,7 @@ const MobileComponent = () => {
         "Provide quality education to underprivileged children and brighten their future.",
       price: "₹25 / Child",
       image: Image,
+      link: "/donation2", // Link to second donation page
     },
     {
       title: "Provide Warm Clothing",
@@ -23,6 +25,7 @@ const MobileComponent = () => {
         "Help families survive the winter by providing warm clothing and blankets.",
       price: "₹50 / Family",
       image: Image,
+      link: "/donation3", // Link to third donation page
     },
     {
       title: "Medical Assistance for the Needy",
@@ -30,6 +33,7 @@ const MobileComponent = () => {
         "Offer medical aid and supplies to those in dire need, improving their health and well-being.",
       price: "₹100 / Person",
       image: Image,
+      link: "/donation4", // Link to fourth donation page
     },
     {
       title: "Clean Water Initiative",
@@ -37,6 +41,7 @@ const MobileComponent = () => {
         "Ensure access to clean water for communities suffering from unsafe drinking water.",
       price: "₹30 / Family",
       image: Image,
+      link: "/donation5", // Link to fifth donation page
     },
     {
       title: "Housing for the Homeless",
@@ -44,6 +49,7 @@ const MobileComponent = () => {
         "Provide safe shelter to the homeless and protect them from harsh conditions.",
       price: "₹200 / Person",
       image: Image,
+      link: "/donation6", // Link to sixth donation page
     },
   ];
 
@@ -58,8 +64,10 @@ const MobileComponent = () => {
           <div className="mx-auto grid max-w-xl gap-4">
             {missions.map((mission, index) => (
               <a
-                href="#"
+                href={mission.link} // Set the link for the mission
                 key={index}
+                target="_blank" // Open in a new tab
+                rel="noopener noreferrer" // Security best practice
                 className="flex flex-col items-center text-center pb-8 border-b border-gray-300"
               >
                 {/* Image */}
@@ -73,7 +81,9 @@ const MobileComponent = () => {
                   <h3 className="mb-2 text-base font-semibold">
                     {mission.title}
                   </h3>
-                  <p className="mb-4 text-gray-500 text-sm">{mission.description}</p>
+                  <p className="mb-4 text-gray-500 text-sm">
+                    {mission.description}
+                  </p>
                   <p className="text-sm text-green-800 font-bold">
                     {mission.price}
                   </p>

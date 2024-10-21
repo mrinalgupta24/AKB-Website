@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-const DonateUsFormOne = () => {
-  const [count, setCount] = useState(1);
-  const [totalAmount, setTotalAmount] = useState(3000);
+const DonationUsFormTwo = () => {
+  const [totalAmount, setTotalAmount] = useState("");
 
-  // Handle count change and update total amount
-  const handleCountChange = (e) => {
-    const newCount = e.target.value ? parseInt(e.target.value) : 0;
-    setCount(newCount);
-    setTotalAmount(newCount * 3000);
+  // Handle amount change
+  const handleAmountChange = (e) => {
+    setTotalAmount(e.target.value); // Store the input value as text
   };
 
   return (
@@ -23,7 +20,7 @@ const DonateUsFormOne = () => {
           </p>
         </div>
 
-        <div className="lg:my-14 my-8 grid lg:grid-cols-2 grid-cols-1 gap-8">
+        <div className="lg:my-8 grid lg:grid-cols-2 grid-cols-1 gap-8">
           <div className="w-full flex-col justify-start items-start gap-6 flex">
             <div className="w-full flex-col justify-start items-start gap-8 flex">
               {/* Donor Name */}
@@ -111,41 +108,38 @@ const DonateUsFormOne = () => {
                 />
               </div>
 
-              {/* Count and Total Amount */}
-              <div className="w-full justify-start items-start gap-7 flex sm:flex-row flex-col">
-                <div className="w-full flex-col justify-start items-start gap-1.5 flex">
-                  <label
-                    htmlFor="count"
-                    className="text-gray-600 text-base font-medium"
-                  >
-                    Count
-                  </label>
-                  <input
-                    type="number"
-                    className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-sm leading-relaxed px-5 py-3 rounded-lg shadow-sm border border-gray-200"
-                    value={count}
-                    onChange={handleCountChange}
-                    placeholder="Enter the count"
-                  />
-                </div>
-
-                <div className="w-full flex-col justify-start items-start gap-1.5 flex">
-                  <label
-                    htmlFor="total-amount"
-                    className="text-gray-600 text-base font-medium"
-                  >
-                    Total Amount (INR)
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-sm leading-relaxed px-5 py-3 rounded-lg shadow-sm border border-gray-200"
-                    value={totalAmount}
-                    readOnly
-                  />
-                </div>
+              {/* Donation Amount */}
+              <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <label
+                  htmlFor="donation-amount"
+                  className="text-gray-600 text-base font-medium"
+                >
+                  Donation Amount (INR)
+                </label>
+                <input
+                  type="text"
+                  className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-sm leading-relaxed px-5 py-3 rounded-lg shadow-sm border border-gray-200"
+                  value={totalAmount}
+                  onChange={handleAmountChange}
+                  placeholder="Enter the donation amount"
+                />
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Special Request Section */}
+        <div className="w-full flex-col justify-start items-start gap-1.5 flex mt-8">
+          <label
+            htmlFor="special-request"
+            className="text-gray-600 text-base font-medium"
+          >
+            Do you have any special request?
+          </label>
+          <textarea
+            className="w-full h-32 focus:outline-none text-gray-900 placeholder-gray-400 text-sm leading-relaxed px-5 py-3 rounded-lg shadow-sm border border-gray-200"
+            placeholder="Enter any special requests or instructions"
+          ></textarea>
         </div>
 
         {/* Grand Total - Full Width */}
@@ -168,4 +162,4 @@ const DonateUsFormOne = () => {
   );
 };
 
-export default DonateUsFormOne;
+export default DonationUsFormTwo;
