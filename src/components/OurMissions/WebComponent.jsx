@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import bgImage from "../../images/bg1.jpg";
 
 const WebComponent = () => {
@@ -91,12 +92,11 @@ const WebComponent = () => {
                 <p className="text-gray-500 leading-6 mb-6">
                   {blog.description}
                 </p>
-                <button
-                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
-                  onClick={() => window.open(blog.link, "_blank")}
-                >
-                  View More
-                </button>
+                <Link to={blog.link}>
+                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                    View More
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
