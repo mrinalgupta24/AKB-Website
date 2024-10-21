@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import bgImage from "../../images/bg1.jpg";
 
 const WebComponent = () => {
@@ -15,55 +16,55 @@ const WebComponent = () => {
       location: "Kolkata",
       title: "Golden Years Retreat",
       image: "https://pagedone.io/asset/uploads/1696244340.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Bangalore",
       title: "Serene Senior Living",
       image: "https://pagedone.io/asset/uploads/1696244356.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Delhi",
       title: "Autumn Leaves Home",
       image: "https://pagedone.io/asset/uploads/1696244317.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Mumbai",
       title: "Silver Linings Care",
       image: "https://pagedone.io/asset/uploads/1696244340.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Hyderabad",
       title: "Evergreen Elders",
       image: "https://pagedone.io/asset/uploads/1696244356.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Kolkata",
       title: "Tranquil Twilight Home",
       image: "https://pagedone.io/asset/uploads/1696244317.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Bangalore",
       title: "Graceful Aging Center",
       image: "https://pagedone.io/asset/uploads/1696244340.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Delhi",
       title: "Blissful Retirement Haven",
       image: "https://pagedone.io/asset/uploads/1696244356.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
     {
       location: "Mumbai",
       title: "Harmony House for Seniors",
       image: "https://pagedone.io/asset/uploads/1696244317.png",
-      link: "/donation3", 
+      link: "/donation3",
     },
   ];
 
@@ -150,12 +151,12 @@ const WebComponent = () => {
                 <span className="text-green-800 font-bold mb-5 block">
                   {initiative.location}
                 </span>
-                <button
+                <Link
+                  to={initiative.link}
                   className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
-                  onClick={() => (window.location.href = initiative.link)} // Updated here
                 >
                   Support Now
-                </button>
+                </Link>
               </div>
             </div>
           ))}
