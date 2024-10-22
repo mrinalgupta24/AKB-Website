@@ -1,7 +1,14 @@
 import React from "react";
-import bgImage from "../../images/aboutus.jpg"; // Ensure you use the bgImage if needed
+import { useNavigate } from "react-router-dom";
+import bgImage from "../../images/aboutus.jpg";
 
 const DonateUs = () => {
+  const navigate = useNavigate(); // Hook to programmatically navigate
+
+  const handleNavigate = () => {
+    navigate("/donation5"); // Navigate to the donation5 page
+  };
+
   return (
     <div>
       <section>
@@ -14,7 +21,10 @@ const DonateUs = () => {
           <p className="mx-auto mb-8 mt-4 text-center font-bold md:text-center lg:text-center text-green-800">
             Lorem ipsum dolor sit amet elit ut aliquam
           </p>
-          <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95 mb-8 mx-auto block">
+          <button
+            onClick={handleNavigate} // Trigger navigation on click
+            className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95 mb-8 mx-auto block"
+          >
             Donate Us
           </button>
 

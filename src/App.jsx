@@ -15,6 +15,7 @@ import Donation2 from "./pages/Donation2";
 import Donation3 from "./pages/Donation3";
 import Donation4 from "./pages/Donation4";
 import Fundraiser from "./pages/Fundraiser";
+import Donation5 from "./pages/Donation5";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -40,6 +41,7 @@ function App() {
           <Route path="/donation3" element={<Donation3/>} />
           <Route path="/donation4" element={<Donation4/>} />
           <Route path="/fundraiser" element={<Fundraiser/>} />
+          <Route path="/donation5" element={<Donation5/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

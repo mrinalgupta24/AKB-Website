@@ -52,8 +52,7 @@ const VideoSection = () => {
   }, []);
 
   return (
-    <section className="bg-white py-20 overflow-hidden">
-      {" "}
+    <section className="bg-white py-12 overflow-hidden">
       {/* Add overflow-hidden */}
       <div ref={domNode} className="container mx-auto">
         <div className="flex flex-wrap justify-center">
