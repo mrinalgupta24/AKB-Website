@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import bgImage from "../../images/bg1.jpg";
+import { Link } from "react-router-dom";
 
 const WebComponent = () => {
   // ProgressBar component to show percentage progress with animation
@@ -63,7 +64,7 @@ const WebComponent = () => {
     );
   };
 
-  // Fundraisers with numeric `amountRaised` and `targetAmount`
+  // Fundraisers with numeric `amountRaised` and `targetAmount`, along with links
   const fundraisers = [
     {
       title: "Help Us In Education Of Children",
@@ -72,6 +73,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244317.png",
       amountRaised: 5000,
       targetAmount: 20000,
+      link: "/fundraiser",
     },
     {
       title: "Medical Aid for the Needy",
@@ -80,6 +82,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244340.png",
       amountRaised: 10000,
       targetAmount: 50000,
+      link: "/fundraiser",
     },
     {
       title: "Support Disaster Relief Efforts",
@@ -88,6 +91,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244356.png",
       amountRaised: 15000,
       targetAmount: 30000,
+      link: "/fundraiser",
     },
     {
       title: "Clean Water Initiative",
@@ -96,6 +100,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244340.png",
       amountRaised: 7500,
       targetAmount: 25000,
+      link: "/fundraiser",
     },
     {
       title: "Reforestation Project",
@@ -104,6 +109,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244356.png",
       amountRaised: 12000,
       targetAmount: 40000,
+      link: "/fundraiser",
     },
     {
       title: "Homeless Shelter Support",
@@ -112,6 +118,7 @@ const WebComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244317.png",
       amountRaised: 8000,
       targetAmount: 35000,
+      link: "/fundraiser",
     },
   ];
 
@@ -151,9 +158,11 @@ const WebComponent = () => {
                 <p className="text-gray-500 leading-6 mb-6">
                   {fundraiser.description}
                 </p>
-                <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
-                  Donate Now
-                </button>
+                <Link to={fundraiser.link}>
+                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+                    Donate Now
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

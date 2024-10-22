@@ -14,6 +14,7 @@ import ScrollToTop from "./ScrollToTop";
 import Donation2 from "./pages/Donation2";
 import Donation3 from "./pages/Donation3";
 import Donation4 from "./pages/Donation4";
+import Fundraiser from "./pages/Fundraiser";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,12 +33,13 @@ function App() {
         <ScrollToTop />
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/" element={<Navigate to="/home"/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/donation2" element={<Donation2/>} />
           <Route path="/donation3" element={<Donation3/>} />
           <Route path="/donation4" element={<Donation4/>} />
+          <Route path="/fundraiser" element={<Fundraiser/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

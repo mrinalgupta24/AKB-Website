@@ -63,7 +63,7 @@ const MobileComponent = () => {
               <input
                 type="search"
                 className="w-full p-3 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:ring-green-500 focus:border-green-500"
-                placeholder="Search old age homes or locations..."
+                placeholder="Search old age homes"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -100,7 +100,7 @@ const MobileComponent = () => {
                   </p>
                   <button
                     className="w-full bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4 rounded text-sm transition-all duration-300 hover:scale-105 hover:rotate-1 hover:from-green-800 hover:to-green-900 active:scale-95"
-                    onClick={() => (window.location.href = initiative.link)}
+                    onClick={() => (window.location.href = home.link)} // Corrected the variable name to home.link
                   >
                     Support Now
                   </button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const MobileComponent = () => {
   const fundraisers = [
@@ -9,6 +10,7 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244317.png",
       amountRaised: 5000,
       targetAmount: 20000,
+      link: "/fundraiser", // Update the link for specific routes
     },
     {
       title: "Medical Aid for the Needy",
@@ -17,6 +19,7 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244340.png",
       amountRaised: 10000,
       targetAmount: 50000,
+      link: "/fundraiser",
     },
     {
       title: "Support Disaster Relief Efforts",
@@ -25,6 +28,7 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244356.png",
       amountRaised: 15000,
       targetAmount: 30000,
+      link: "/fundraiser",
     },
     {
       title: "Clean Water Initiative",
@@ -33,6 +37,7 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244340.png",
       amountRaised: 7500,
       targetAmount: 25000,
+      link: "/fundraiser",
     },
     {
       title: "Reforestation Project",
@@ -41,6 +46,7 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244356.png",
       amountRaised: 12000,
       targetAmount: 40000,
+      link: "/fundraiser",
     },
     {
       title: "Homeless Shelter Support",
@@ -49,10 +55,10 @@ const MobileComponent = () => {
       image: "https://pagedone.io/asset/uploads/1696244317.png",
       amountRaised: 8000,
       targetAmount: 35000,
+      link: "/fundraiser",
     },
   ];
 
-  // ProgressBar component defined here
   const ProgressBar = ({ current, target }) => {
     const [width, setWidth] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
@@ -64,10 +70,10 @@ const MobileComponent = () => {
         ([entry]) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // Stop observing once it becomes visible
+            observer.disconnect();
           }
         },
-        { threshold: 0.1 } // Trigger when 10% of the element is visible
+        { threshold: 0.1 }
       );
 
       if (progressRef.current) {
@@ -83,10 +89,9 @@ const MobileComponent = () => {
 
     useEffect(() => {
       if (isVisible) {
-        // Animate the progress bar
         const timer = setTimeout(() => {
           setWidth(percentage);
-        }, 500); // Delay to allow the component to render first
+        }, 500);
 
         return () => clearTimeout(timer);
       }
@@ -120,32 +125,26 @@ const MobileComponent = () => {
   return (
     <div>
       <section>
-        {/* Container */}
         <div className="mx-auto w-full max-w-7xl px-5 mb-12 md:px-10 md:py-12">
-          {/* Title */}
           <h2 className="text-center mb-8 text-3xl font-bold">
             Our Fundraisers
           </h2>
-          {/* Content */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto">
             {fundraisers.map((fundraiser, index) => (
-              <a
-                href="#"
+              <Link
+                to={fundraiser.link}
                 key={index}
                 className="flex flex-col items-center text-center border border-gray-300 rounded-md p-4 transition-all duration-300 hover:shadow-lg"
               >
-                {/* Image */}
                 <img
                   src={fundraiser.image}
                   alt={fundraiser.title}
                   className="h-28 w-40 object-cover rounded-md mb-4"
                 />
-                {/* Progress Bar */}
                 <ProgressBar
                   current={fundraiser.amountRaised}
                   target={fundraiser.targetAmount}
                 />
-                {/* Text content */}
                 <div className="px-2">
                   <h3 className="mb-2 text-base font-semibold">
                     {fundraiser.title}
@@ -154,10 +153,10 @@ const MobileComponent = () => {
                     {fundraiser.description}
                   </p>
                   <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
-                    View More
+                    Donate Now
                   </button>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
