@@ -238,7 +238,7 @@ const DonateUsFormThree = () => {
               htmlFor="upload-document"
               className="text-gray-600 text-base font-medium"
             >
-              Upload any document
+              Upload delivery slip including money paid
             </label>
             <input
               type="file"
@@ -251,6 +251,16 @@ const DonateUsFormThree = () => {
       "
               onChange={handleFileUpload}
             />
+          </div>
+
+          {/* Grand Total - Full Width */}
+          <div className="w-full max-w-7xl flex justify-between items-center bg-[#eaf4f4] px-8 py-6 rounded-lg shadow-md mt-8">
+            <span className="text-lg font-semibold text-gray-700">
+              Grand Total:
+            </span>
+            <span className="text-xl font-bold text-gray-900">
+              ₹{totalAmount}
+            </span>
           </div>
 
           {/* Submit Button Section */}
@@ -270,7 +280,8 @@ const DonateUsFormThree = () => {
             <div className="bg-white rounded-lg p-8 shadow-lg text-center">
               <h3 className="text-lg font-bold mb-4">Form Submitted!</h3>
               <p className="mb-6">
-                Thank you for your submission. Need to wait till it reaches us and then in 1-2 days we will deliver it to the needy.
+                Thank you for your submission. Need to wait till it reaches us
+                and then in 1-2 days we will deliver it to the needy.
               </p>
               <button
                 onClick={handleClosePopup}
