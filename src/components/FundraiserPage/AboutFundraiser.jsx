@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import fundimage from "../../images/aboutus.jpg";
 
-const AboutFundraiser = () => {
+const AboutFundraiser = ({ data }) => {
+  // Accept data as props
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -33,32 +34,26 @@ const AboutFundraiser = () => {
             Fundraiser Details
           </h2>
 
-          <p className="mb-2 ml-8 text-left md:text-left ">
-            {/* Center align for mobile */}
+          {/* Dynamically rendering the data */}
+          <p className="mb-2 ml-8 text-left md:text-left">
             <strong className="text-black text-lg">Name:</strong>{" "}
-            <span className="text-gray-500 text-lg">Abhi</span>
+            <span className="text-gray-500 text-lg">{data.name}</span>
           </p>
           <p className="mb-2 ml-8 text-left md:text-left">
-            {/* Center align for mobile */}
             <strong className="text-black text-lg">Age:</strong>{" "}
-            <span className="text-gray-500 text-lg">99</span>
+            <span className="text-gray-500 text-lg">{data.age}</span>
           </p>
           <p className="mb-2 ml-8 text-left md:text-left">
-            {/* Center align for mobile */}
             <strong className="text-black text-lg">Address:</strong>{" "}
-            <span className="text-gray-500 text-lg">
-              Street 1, Street 2, City, Pincode
-            </span>
+            <span className="text-gray-500 text-lg">{data.address}</span>
           </p>
           <p className="mb-2 ml-8 text-left md:text-left">
-            {/* Center align for mobile */}
             <strong className="text-black text-lg">Amount Needed:</strong>{" "}
-            <span className="text-gray-500 text-lg">₹30,000</span>
+            <span className="text-gray-500 text-lg">{data.amount_needed}</span>
           </p>
           <p className="mb-6 ml-8 text-left md:text-left">
-            {/* Center align for mobile */}
             <strong className="text-black text-lg">Date of Needed:</strong>{" "}
-            <span className="text-gray-500 text-lg">12-12-2003</span>
+            <span className="text-gray-500 text-lg">{data.date_of_needed}</span>
           </p>
         </div>
       </div>

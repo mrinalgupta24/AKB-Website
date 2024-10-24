@@ -1,28 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-// Hook for detecting outside clicks
-const useClickOutside = (handler) => {
-  const domNode = useRef();
-
-  useEffect(() => {
-    const maybeHandler = (event) => {
-      if (!domNode.current || !domNode.current.contains(event.target)) {
-        handler();
-      }
-    };
-    document.addEventListener("mousedown", maybeHandler);
-
-    return () => {
-      document.removeEventListener("mousedown", maybeHandler);
-    };
-  }, [handler]);
-
-  return domNode;
-};
-
-const VideoSection = () => {
+const VideoSection = ({ data }) => {
   const videoRef = useRef(null);
-  const domNode = useClickOutside(() => console.log("Clicked outside!")); // Handle outside click
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to open the modal
+  const openModal = () => setIsModalOpen(true);
+
+  // Function to close the modal
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,7 +22,7 @@ const VideoSection = () => {
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the video is visible
+        threshold: 0.5,
       }
     );
 
@@ -53,8 +39,7 @@ const VideoSection = () => {
 
   return (
     <section className="bg-white py-12 overflow-hidden">
-      {/* Add overflow-hidden */}
-      <div ref={domNode} className="container mx-auto">
+      <div className="container mx-auto">
         <div className="flex flex-wrap justify-center">
           <div className="w-full px-4">
             <h2 className="mb-6 max-w-4xl mx-auto text-3xl font-bold text-center md:text-5xl">
@@ -64,16 +49,14 @@ const VideoSection = () => {
               <div className="w-full max-w-6xl">
                 <video
                   ref={videoRef}
-                  className="w-full h-auto"
+                  className="w-full h-auto cursor-pointer"
                   muted
                   loop
                   playsInline
-                  style={{ minHeight: "100px", maxHeight: "70vh" }} // Set maxHeight for better mobile responsiveness
+                  onClick={openModal} // Open modal on click
+                  style={{ minHeight: "100px", maxHeight: "70vh" }}
                 >
-                  <source
-                    src="https://www.w3schools.com/html/mov_bbb.mp4"
-                    type="video/mp4"
-                  />
+                  <source src={data.video} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -81,6 +64,37 @@ const VideoSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal for Video Playback */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75"
+          onClick={closeModal}
+        >
+          <div className="relative bg-white rounded-lg overflow-hidden max-w-4xl w-full">
+            <button
+              className="absolute top-2 right-2 text-black text-2xl"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent modal from closing when clicking the button
+                closeModal();
+              }}
+            >
+              &times; {/* Close button */}
+            </button>
+            <video
+              className="w-full h-auto"
+              controls
+              autoPlay
+              muted
+              playsInline
+              onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking video
+            >
+              <source src={data.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

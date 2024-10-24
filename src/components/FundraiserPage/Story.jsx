@@ -1,7 +1,7 @@
 import React from "react";
-import bgImage from "../../images/greybg.avif";
 
-const Story = () => {
+const Story = ({ content }) => {
+  // Accept only content as prop
   return (
     <div className="relative">
       <section>
@@ -21,16 +21,7 @@ const Story = () => {
                 Story
               </h2>
               <p className="mb-2 text-sm text-gray-600 sm:text-base md:mb-6 lg:mb-8">
-                Every day, millions worldwide suffer from hunger, particularly
-                affecting the homeless. With nearly 150 million people
-                struggling to secure their next meal, your support can have a
-                profound impact. By donating even a small portion of your
-                income, you can help provide essential food to those living on
-                the streets, ensuring they don’t have to endure another day
-                without nourishment. Your generosity can transform lives and
-                bring hope to those in need. Join us in making a
-                difference—together, we can fight hunger and restore dignity to
-                those facing this dire challenge. Your kindness matters.
+                {content} {/* Render the content prop */}
               </p>
             </div>
           </div>

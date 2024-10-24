@@ -34,14 +34,14 @@ function App() {
         <ScrollToTop />
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/home"/>} />
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/donation" element={<Donation />} />
-          <Route path="/donation2" element={<Donation2/>} />
-          <Route path="/donation3" element={<Donation3/>} />
-          <Route path="/donation4" element={<Donation4/>} />
-          <Route path="/fundraiser" element={<Fundraiser/>} />
-          <Route path="/donation5" element={<Donation5/>} />
+          <Route path="/donation2" element={<Donation2 />} />
+          <Route path="/donation3" element={<Donation3 />} />
+          <Route path="/donation4" element={<Donation4 />} />
+          <Route path="/fundraiser/:id" element={<Fundraiser/>} />
+          <Route path="/donation5" element={<Donation5 />} />
         </Routes>
         <Footer />
       </BrowserRouter>

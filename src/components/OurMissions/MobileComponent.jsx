@@ -1,106 +1,107 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
-import Image from "../../images/volunteer.png";
 
 const MobileComponent = () => {
   const navigate = useNavigate(); // Hook for programmatic navigation
+  const [missions, setMissions] = useState([]); // State to hold fetched missions
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
 
-  const missions = [
-    {
-      title: "Feed a Homeless Person",
-      description:
-        "Feed a hungry stomach and protect the poor from malnutrition and starvation.",
-      price: "₹13 / Person",
-      image: Image,
-      link: "/donation",
-    },
-    {
-      title: "Support Education for Children",
-      description:
-        "Provide quality education to underprivileged children and brighten their future.",
-      price: "₹25 / Child",
-      image: Image,
-      link: "/donation2", 
-    },
-    {
-      title: "Provide Warm Clothing",
-      description:
-        "Help families survive the winter by providing warm clothing and blankets.",
-      price: "₹50 / Family",
-      image: Image,
-      link: "/donation2", 
-    },
-    {
-      title: "Medical Assistance for the Needy",
-      description:
-        "Offer medical aid and supplies to those in dire need, improving their health and well-being.",
-      price: "₹100 / Person",
-      image: Image,
-      link: "/donation2", 
-    },
-    {
-      title: "Clean Water Initiative",
-      description:
-        "Ensure access to clean water for communities suffering from unsafe drinking water.",
-      price: "₹30 / Family",
-      image: Image,
-      link: "/donation2", 
-    },
-    {
-      title: "Housing for the Homeless",
-      description:
-        "Provide safe shelter to the homeless and protect them from harsh conditions.",
-      price: "₹200 / Person",
-      image: Image,
-      link: "/donation2", 
-    },
-  ];
+  // Fetch data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://98.83.206.195:8000/api/home_page/"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+
+        // Filter data where type is "mission"
+        const filteredMissions = data.filter((item) => item.type === "mission");
+        setMissions(filteredMissions);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Failed to fetch missions. Please try again later.");
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Render loading state
+  if (loading) {
+    return <div className="text-center">Loading missions...</div>;
+  }
+
+  // Render error state
+  if (error) {
+    return <div className="text-center text-red-500">{error}</div>;
+  }
+
+  // Render no missions available state
+  if (missions.length === 0) {
+    return (
+      <div className="text-center">No missions available at this time.</div>
+    );
+  }
 
   return (
-    <div>
-      <section>
-        {/* Container */}
-        <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-12">
-          {/* Title */}
-          <h2 className="text-center mb-8 text-3xl font-bold">Our Missions</h2>
-          {/* Content */}
-          <div className="mx-auto grid max-w-xl gap-4">
-            {missions.map((mission, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center text-center pb-8 border-b border-gray-300"
-              >
-                {/* Image */}
+    <section className="bg-gray-100 py-4">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">Our Missions</h2>
+
+        <div className="flex flex-col space-y-6">
+          {missions.map((mission, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-md p-4 transition-transform duration-300 transform hover:scale-105"
+            >
+              <div className="relative h-48 overflow-hidden rounded-lg">
                 <img
-                  src={mission.image}
-                  alt={mission.title}
-                  className="h-28 w-40 object-cover rounded-md mb-4"
+                  src={mission.image} // Fetch the image from API
+                  alt={mission.name} // Dynamic alt text based on mission name
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* Text content */}
-                <div className="px-8">
-                  <h3 className="mb-2 text-base font-semibold">
-                    {mission.title}
-                  </h3>
-                  <p className="mb-4 text-gray-500 text-sm">
-                    {mission.description}
-                  </p>
-                  <p className="text-sm text-green-800 font-bold">
-                    {mission.price}
-                  </p>
-                  {/* Button with link to same tab */}
-                  <button
-                    className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-2 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
-                    onClick={() => navigate(mission.link)} // Navigate to the link in the same tab
-                  >
-                    View More
-                  </button>
-                </div>
               </div>
-            ))}
-          </div>
+              <div className="mt-4 text-center">
+                <span className="text-lg font-semibold text-green-800">
+                  {mission.price === "Custom"
+                    ? "Custom Donation"
+                    : `₹${mission.price} / Person`}
+                </span>
+                <h4 className="mt-2 text-xl font-medium text-gray-900">
+                  {mission.name}
+                </h4>
+                <p className="mt-1 text-gray-600">{mission.description}</p>
+                <button
+                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                  onClick={() => {
+                    // Check if the mission is an orphanage and navigate to donation2
+                    if (
+                      mission.name.toLowerCase() === "orphanage" ||
+                      mission.route === "/orphanage"
+                    ) {
+                      navigate("/donation2"); // Navigate to donation2 page if the mission is orphanage
+                    } else if (mission.price === "Custom") {
+                      navigate("/donation4"); // Navigate to custom donation page
+                    } else if (!isNaN(mission.price)) {
+                      navigate("/donation"); // Navigate to the donation page for specified price
+                    }
+                  }}
+                >
+                  {mission.price === "Custom" ? "View Now" : "View Now"}
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

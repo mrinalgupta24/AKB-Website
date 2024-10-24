@@ -1,24 +1,52 @@
 import React, { useState, useEffect, useRef } from "react";
 import bgImage from "../../images/bg1.jpg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const WebComponent = () => {
-  // ProgressBar component to show percentage progress with animation
+  const [fundraisers, setFundraisers] = useState([]);
+  const navigate = useNavigate(); // Initialize navigate
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://98.83.206.195:8000/api/home_page/"
+        );
+        const data = await response.json();
+
+        console.log("Fetched data:", data);
+
+        const filteredData = data.filter((item) => item.type === "fundraiser");
+        setFundraisers(filteredData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const ProgressBar = ({ current, target }) => {
-    const [width, setWidth] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const percentage = Math.min((current / target) * 100, 100).toFixed(0);
+    const [animatedWidth, setAnimatedWidth] = useState(0);
     const progressRef = useRef(null);
+
+    const currentAmount = parseFloat(current) || 0;
+    const targetAmount = parseFloat(target) > 0 ? parseFloat(target) : 1;
+
+    const percentage = Math.min(
+      Math.max((currentAmount / targetAmount) * 100, 0),
+      100
+    );
 
     useEffect(() => {
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect(); // Stop observing once it becomes visible
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setAnimatedWidth(percentage);
+            observer.disconnect();
           }
         },
-        { threshold: 0.1 } // Trigger when 10% of the element is visible
+        { threshold: 0.1 }
       );
 
       if (progressRef.current) {
@@ -30,18 +58,7 @@ const WebComponent = () => {
           observer.unobserve(progressRef.current);
         }
       };
-    }, []);
-
-    useEffect(() => {
-      if (isVisible) {
-        // Animate the progress bar
-        const timer = setTimeout(() => {
-          setWidth(percentage);
-        }, 500); // Delay to allow the component to render first
-
-        return () => clearTimeout(timer);
-      }
-    }, [isVisible, percentage]);
+    }, [percentage]);
 
     return (
       <div ref={progressRef} className="w-full">
@@ -53,7 +70,7 @@ const WebComponent = () => {
         <div className="w-full bg-gray-300 rounded-full h-2.5">
           <div
             className="bg-green-800 h-2.5 rounded-full transition-all duration-1000 ease-out"
-            style={{ width: `${width}%` }}
+            style={{ width: `${animatedWidth}%` }}
           ></div>
         </div>
         <div className="flex justify-between text-gray-600 mt-2">
@@ -64,63 +81,11 @@ const WebComponent = () => {
     );
   };
 
-  // Fundraisers with numeric `amountRaised` and `targetAmount`, along with links
-  const fundraisers = [
-    {
-      title: "Help Us In Education Of Children",
-      description:
-        "Support the education of children from underprivileged communities and give them a better future.",
-      image: "https://pagedone.io/asset/uploads/1696244317.png",
-      amountRaised: 5000,
-      targetAmount: 20000,
-      link: "/fundraiser",
-    },
-    {
-      title: "Medical Aid for the Needy",
-      description:
-        "Provide medical assistance to individuals in need by contributing to their healthcare expenses.",
-      image: "https://pagedone.io/asset/uploads/1696244340.png",
-      amountRaised: 10000,
-      targetAmount: 50000,
-      link: "/fundraiser",
-    },
-    {
-      title: "Support Disaster Relief Efforts",
-      description:
-        "Help us provide urgent relief and aid to communities affected by natural disasters.",
-      image: "https://pagedone.io/asset/uploads/1696244356.png",
-      amountRaised: 15000,
-      targetAmount: 30000,
-      link: "/fundraiser",
-    },
-    {
-      title: "Clean Water Initiative",
-      description:
-        "Help provide clean and safe drinking water to communities in need around the world.",
-      image: "https://pagedone.io/asset/uploads/1696244340.png",
-      amountRaised: 7500,
-      targetAmount: 25000,
-      link: "/fundraiser",
-    },
-    {
-      title: "Reforestation Project",
-      description:
-        "Support our efforts to plant trees and restore forests to combat climate change.",
-      image: "https://pagedone.io/asset/uploads/1696244356.png",
-      amountRaised: 12000,
-      targetAmount: 40000,
-      link: "/fundraiser",
-    },
-    {
-      title: "Homeless Shelter Support",
-      description:
-        "Contribute to providing shelter, food, and essential services to homeless individuals in our community.",
-      image: "https://pagedone.io/asset/uploads/1696244317.png",
-      amountRaised: 8000,
-      targetAmount: 35000,
-      link: "/fundraiser",
-    },
-  ];
+  // Function to handle navigation
+  const handleNavigate = (route) => {
+    const id = route.split("-")[1]; // Extract ID from the route
+    navigate(`/fundraiser/${id}`); // Use navigate to go to the fundraiser page
+  };
 
   return (
     <section className="mt-8 mb-24 flex justify-center">
@@ -128,44 +93,54 @@ const WebComponent = () => {
         <h2 className="font-manrope text-5xl font-bold text-gray-900 text-center mb-16">
           Our Fundraisers
         </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {fundraisers.map((fundraiser, index) => (
-            <div
-              key={index}
-              className="group border border-gray-300 rounded-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
-              style={{
-                backgroundImage: `url(${bgImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="flex items-center justify-center">
-                <img
-                  src={fundraiser.image}
-                  alt="fundraiser image"
-                  className="rounded-t-2xl w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
-                />
-              </div>
-              <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl flex flex-col items-center text-center">
-                <ProgressBar
-                  current={fundraiser.amountRaised}
-                  target={fundraiser.targetAmount}
-                />
-                <h4 className="text-xl text-gray-900 font-medium leading-8 mt-6 mb-5">
-                  {fundraiser.title}
-                </h4>
-                <p className="text-gray-500 leading-6 mb-6">
-                  {fundraiser.description}
-                </p>
-                <Link to={fundraiser.link}>
-                  <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+          {fundraisers.length > 0 ? (
+            fundraisers.map((fundraiser) => (
+              <div
+                key={fundraiser.id}
+                className="group border border-gray-300 rounded-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                style={{
+                  backgroundImage: `url(${bgImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="flex items-center justify-center h-64 overflow-hidden">
+                  <img
+                    src={fundraiser.image || "fallback-image-url"}
+                    alt={fundraiser.name}
+                    className="rounded-t-2xl w-full object-cover transition-opacity duration-300 group-hover:opacity-90 h-full"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "fallback-image-url";
+                    }}
+                  />
+                </div>
+                <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl flex flex-col items-center text-center">
+                  <ProgressBar
+                    current={fundraiser.fundraised_amount}
+                    target={fundraiser.required_amount}
+                  />
+                  <h4 className="text-xl text-gray-900 font-medium leading-8 mt-6 mb-5">
+                    {fundraiser.name}
+                  </h4>
+                  <p className="text-gray-500 leading-6 mb-6">
+                    {fundraiser.description}
+                  </p>
+                  <button
+                    className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                    onClick={() => handleNavigate(fundraiser.route)} // Call the navigation function
+                  >
                     Donate Now
                   </button>
-                </Link>
+                </div>
               </div>
+            ))
+          ) : (
+            <div className="text-center text-gray-500">
+              No fundraisers available.
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>
