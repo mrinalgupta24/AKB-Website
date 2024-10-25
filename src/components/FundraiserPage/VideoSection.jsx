@@ -87,6 +87,11 @@ const VideoSection = ({ data }) => {
               autoPlay
               muted
               playsInline
+              style={{
+                maxWidth: "90vw", // Limit width to 90% of viewport
+                maxHeight: "90vh", // Limit height to 90% of viewport
+                objectFit: "contain", // Fit the video within modal bounds
+              }}
               onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking video
             >
               <source src={data.video} type="video/mp4" />

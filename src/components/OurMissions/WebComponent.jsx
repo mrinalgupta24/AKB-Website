@@ -12,9 +12,7 @@ const WebComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "http://98.83.206.195:8000/api/home_page/"
-        );
+        const response = await fetch("/api/home_page/");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -95,16 +93,20 @@ const WebComponent = () => {
                 <button
                   className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
                   onClick={() => {
-                    // Check if the mission is an orphanage and navigate to donation2
-                    if (
-                      mission.name.toLowerCase() === "orphanage" ||
-                      mission.route === "/orphanage"
-                    ) {
-                      navigate("/donation2"); // Navigate to donation2 page if the mission is orphanage
-                    } else if (mission.price === "Custom") {
-                      navigate("/donation4"); // Navigate to custom donation page
-                    } else if (!isNaN(mission.price)) {
-                      navigate("/donation"); // Navigate to the donation page for specified price
+                    if (mission.route === "/orphanage") {
+                      navigate("/ProvideGroceries");
+                    } else if (mission.route === "/food") {
+                      navigate("/FoodforNeedy");
+                    } else if (mission.route === "/pets") {
+                      navigate("/FeedStrayCatsandDogs");
+                    } else if (mission.route === "/trees") {
+                      navigate("/PlantTrees");
+                    } else if (mission.route === "/medicines") {
+                      navigate("/ProvideMedicines");
+                    } else if (mission.route === "/sanitary-pads") {
+                      navigate("/ProvideSanitaryPads");
+                    } else if (mission.route === "/clothes") {
+                      navigate("/ProvideClothes");
                     }
                   }}
                 >

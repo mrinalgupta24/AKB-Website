@@ -15,7 +15,7 @@ const Fundraiser = () => {
   useEffect(() => {
     const fetchFundraiserDetails = async () => {
       try {
-        const apiURL = `http://98.83.206.195:8000/api/fundraiser_details/?id=${id}`;
+        const apiURL = `/api/fundraiser_details/?id=${id}`;
         const response = await fetch(apiURL);
 
         if (!response.ok) {

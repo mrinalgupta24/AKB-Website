@@ -11,9 +11,7 @@ const MobileComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "http://98.83.206.195:8000/api/home_page/"
-        );
+        const response = await fetch("/api/home_page/");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
