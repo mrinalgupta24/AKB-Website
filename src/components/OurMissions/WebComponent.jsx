@@ -11,18 +11,40 @@ const WebComponent = () => {
   // Fetch data from API on component mount
   useEffect(() => {
     const fetchData = async () => {
+      // try {
+      //   const corsProxy = "https://cors-anywhere.herokuapp.com/";
+      //   const backendUrl = "http://98.83.206.195:8000/api/home_page/";
+      //   const response = await fetch(`${corsProxy}${backendUrl}`, {
+      //     method: "GET",
+      //     headers: {
+      //       Origin: "https://abk-website.vercel.app",
+      //     },
+      //   });
+      //   if (!response.ok) {
+      //     throw new Error("Network response was not ok");
+      //   }
+      //   const data = await response.json();
+
+      // try {
+      //   const apiURL =
+      //     "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/";
+      //   const response = await fetch(apiURL);
+
+      //   if (!response.ok) {
+      //     throw new Error("Failed to fetch fundraiser details");
+      //   }
+
+      //   const data = await response.json();
+      //   console.log(data);
+
       try {
-        const corsProxy = "https://cors-anywhere.herokuapp.com/";
-        const backendUrl = "http://98.83.206.195:8000/api/home_page/";
-        const response = await fetch(`${corsProxy}${backendUrl}`, {
-          method: "GET",
-          headers: {
-            Origin: "https://abk-website.vercel.app",
-          },
-        });
+        const apiURL = "http://98.83.206.195:8000/api/home_page/";
+        const response = await fetch(apiURL);
+
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error("Failed to fetch fundraiser details");
         }
+
         const data = await response.json();
 
         // Filter the data where type is "mission"
