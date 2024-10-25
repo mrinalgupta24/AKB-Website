@@ -8,7 +8,17 @@ const MobileComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/home_page/");
+        const corsProxy = "https://cors-anywhere.herokuapp.com/";
+        const backendUrl = "http://98.83.206.195:8000/api/home_page/";
+        const response = await fetch(`${corsProxy}${backendUrl}`, {
+          method: "GET",
+          headers: {
+            Origin: "https://abk-website.vercel.app",
+          },
+        });
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         const data = await response.json();
         console.log("Fetched data:", data);
         const filteredData = data.filter((item) => item.type === "fundraiser");

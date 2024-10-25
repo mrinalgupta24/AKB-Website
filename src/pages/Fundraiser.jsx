@@ -15,14 +15,20 @@ const Fundraiser = () => {
   useEffect(() => {
     const fetchFundraiserDetails = async () => {
       try {
-        const apiURL = `/api/fundraiser_details/?id=${id}`;
-        const response = await fetch(apiURL);
-
+        const corsProxy = "https://cors-anywhere.herokuapp.com/";
+        const backendUrl =
+          "http://98.83.206.195:8000/api/fundraiser_details/?id=${id}";
+        const response = await fetch(`${corsProxy}${backendUrl}`, {
+          method: "GET",
+          headers: {
+            Origin: "https://abk-website.vercel.app",
+          },
+        });
         if (!response.ok) {
-          throw new Error("Failed to fetch fundraiser details");
+          throw new Error("Network response was not ok");
         }
-
         const data = await response.json();
+
         console.log("Fetched fundraiser data:", data); // Check the response structure
         setFundraiserData(data); // Adjust based on the actual response structure
       } catch (error) {

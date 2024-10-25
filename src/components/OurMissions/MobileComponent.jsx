@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
+import { useNavigate } from "react-router-dom";
+import bgImage from "../../images/bg1.jpg";
 
 const MobileComponent = () => {
-  const navigate = useNavigate(); // Hook for programmatic navigation
-  const [missions, setMissions] = useState([]); // State to hold fetched missions
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const navigate = useNavigate();
+  const [missions, setMissions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Fetch data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,32 +23,27 @@ const MobileComponent = () => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-
-        // Filter the data where type is "mission"
-        const filteredData = data.filter((item) => item.type === "mission");
-        setMissions(filteredData);
+        const filteredMissions = data.filter((item) => item.type === "mission");
+        setMissions(filteredMissions);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError("Failed to fetch missions. Please try again later.");
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  // Render loading state
   if (loading) {
     return <div className="text-center">Loading missions...</div>;
   }
 
-  // Render error state
   if (error) {
     return <div className="text-center text-red-500">{error}</div>;
   }
 
-  // Render no missions available state
   if (missions.length === 0) {
     return (
       <div className="text-center">No missions available at this time.</div>
@@ -56,46 +51,56 @@ const MobileComponent = () => {
   }
 
   return (
-    <section className="bg-gray-100 py-4">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Missions</h2>
+    <section>
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
+        <h2 className="text-center mb-8 text-3xl font-bold">Our Missions</h2>
 
-        <div className="flex flex-col space-y-6">
+        <div className="mx-auto grid max-w-xl gap-4">
           {missions.map((mission, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md p-4 transition-transform duration-300 transform hover:scale-105"
+              className="flex flex-col items-center text-center pb-8 border-b border-gray-300 transition-transform duration-300 transform hover:scale-105"
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <div className="relative h-48 overflow-hidden rounded-lg">
-                <img
-                  src={mission.image} // Fetch the image from API
-                  alt={mission.name} // Dynamic alt text based on mission name
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <span className="text-lg font-semibold text-green-800">
+              {/* Mission Image */}
+              <img
+                src={mission.image} // Assuming the API provides the correct image URL
+                alt={mission.name}
+                className="h-28 w-40 object-cover rounded-md mb-4 mt-4"
+              />
+
+              {/* Mission Text Content */}
+              <div className="px-8">
+                <h4 className="mb-2 text-lg font-semibold text-green-800">
                   {mission.price === "Custom"
                     ? "Custom Donation"
                     : `₹${mission.price} / Person`}
-                </span>
-                <h4 className="mt-2 text-xl font-medium text-gray-900">
-                  {mission.name}
                 </h4>
-                <p className="mt-1 text-gray-600">{mission.description}</p>
+                <h3 className="mb-2 text-base font-semibold text-gray-900">
+                  {mission.name}
+                </h3>
+                <p className="text-gray-500">{mission.description}</p>
                 <button
-                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-3 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
                   onClick={() => {
-                    // Check if the mission is an orphanage and navigate to donation2
-                    if (
-                      mission.name.toLowerCase() === "orphanage" ||
-                      mission.route === "/orphanage"
-                    ) {
-                      navigate("/donation2"); // Navigate to donation2 page if the mission is orphanage
-                    } else if (mission.price === "Custom") {
-                      navigate("/donation4"); // Navigate to custom donation page
-                    } else if (!isNaN(mission.price)) {
-                      navigate("/donation"); // Navigate to the donation page for specified price
+                    if (mission.route === "/orphanage") {
+                      navigate("/ProvideGroceries");
+                    } else if (mission.route === "/food") {
+                      navigate("/FoodforNeedy");
+                    } else if (mission.route === "/pets") {
+                      navigate("/FeedStrayCatsandDogs");
+                    } else if (mission.route === "/trees") {
+                      navigate("/PlantTrees");
+                    } else if (mission.route === "/medicines") {
+                      navigate("/ProvideMedicines");
+                    } else if (mission.route === "/sanitary-pads") {
+                      navigate("/ProvideSanitaryPads");
+                    } else if (mission.route === "/clothes") {
+                      navigate("/ProvideClothes");
                     }
                   }}
                 >
