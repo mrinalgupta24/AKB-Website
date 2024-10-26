@@ -21,28 +21,30 @@ const WebComponent = () => {
       //     throw new Error("Network response was not ok");
       //   }
       //   const data = await response.json();
-      // try {
-      //   const apiURL =
-      //     "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(apiURL);
+      
+      try {
+        const apiURL =
+          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/ ";
+        const response = await fetch(apiURL);
 
-      //   if (!response.ok) {
-      //     throw new Error("Failed to fetch fundraiser details");
-      //   }
+        if (!response.ok) {
+          throw new Error("Failed to fetch fundraiser details");
+        }
 
-      //   const data = await response.json();
+        const data = await response.json();
+        console.log(data);
 
-        try {
-          const apiURL = "http://98.83.206.195:8000/api/home_page/";
-          const response = await fetch(apiURL);
+        // try {
+        //   const apiURL = "http://98.83.206.195:8000/api/home_page/";
+        //   const response = await fetch(apiURL);
 
-          if (!response.ok) {
-            throw new Error("Failed to fetch fundraiser details");
-          }
+        //   if (!response.ok) {
+        //     throw new Error("Failed to fetch fundraiser details");
+        //   }
 
-          const data = await response.json();
+        //   const data = await response.json();
 
-        console.log("Fetched data:", data);
+        // console.log("Fetched data:", data);
 
         const filteredData = data.filter((item) => item.type === "fundraiser");
         setFundraisers(filteredData);

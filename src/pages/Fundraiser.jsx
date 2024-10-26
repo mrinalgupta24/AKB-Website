@@ -14,8 +14,19 @@ const Fundraiser = () => {
 
   useEffect(() => {
     const fetchFundraiserDetails = async () => {
+      // try {
+      //   const apiURL = `http://98.83.206.195:8000/api/fundraiser_details/?id=${id}`;
+      //   const response = await fetch(apiURL);
+
+      //   if (!response.ok) {
+      //     throw new Error("Failed to fetch fundraiser details");
+      //   }
+
+      //   const data = await response.json();
+
       try {
-        const apiURL = `http://98.83.206.195:8000/api/fundraiser_details/?id=${id}`;
+        const apiURL =
+          `https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/fundraiser_details/?id=${id} `;
         const response = await fetch(apiURL);
 
         if (!response.ok) {
@@ -23,6 +34,7 @@ const Fundraiser = () => {
         }
 
         const data = await response.json();
+        console.log(data);
 
         // try {
         //   const corsProxy = "https://cors-anywhere.herokuapp.com/";
