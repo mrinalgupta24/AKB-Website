@@ -50,10 +50,10 @@ const MobileComponent = () => {
 
   return (
     <div>
-      <section className="py-8">
-        <div className="mx-auto w-full max-w-md px-4">
+      <section className="py-6">
+        <div className="mx-auto w-full max-w-xs sm:max-w-sm px-4">
           {/* Title */}
-          <h2 className="text-center mb-6 text-2xl font-bold">
+          <h2 className="text-center mb-6 text-xl font-semibold text-gray-800">
             Our Old Age Homes
           </h2>
 
@@ -69,7 +69,7 @@ const MobileComponent = () => {
               />
               <button
                 type="submit"
-                className="absolute right-2 top-2 text-white bg-gradient-to-r from-green-900 to-green-800 font-medium rounded-lg text-sm px-4 py-1 transition-all duration-300 hover:from-green-800 hover:to-green-900 active:scale-95"
+                className="absolute right-2 top-2 text-white bg-gradient-to-r from-green-900 to-green-800 font-medium rounded-lg text-xs px-3 py-1 transition-all duration-300 hover:from-green-800 hover:to-green-900 active:scale-95"
               >
                 Search
               </button>
@@ -77,11 +77,11 @@ const MobileComponent = () => {
           </form>
 
           {/* Display Old Age Homes */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {filteredHomes.map((home, index) => (
               <div
                 key={index}
-                className="border border-gray-300 rounded-lg overflow-hidden shadow-sm"
+                className="border border-gray-300 rounded-lg overflow-hidden shadow-md"
                 style={{
                   backgroundImage: `url(${bgImage})`,
                   backgroundSize: "cover",
@@ -91,16 +91,18 @@ const MobileComponent = () => {
                 <img
                   src={home.image}
                   alt={home.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-40 object-cover"
                 />
-                <div className="p-4 bg-white bg-opacity-90">
-                  <h3 className="text-lg font-semibold mb-2">{home.title}</h3>
-                  <p className="text-green-800 font-bold text-sm mb-3">
+                <div className="p-3 bg-white bg-opacity-90">
+                  <h3 className="text-md font-semibold mb-1 text-gray-900">
+                    {home.title}
+                  </h3>
+                  <p className="text-green-800 font-bold text-sm mb-2">
                     {home.location}
                   </p>
                   <button
-                    className="w-full bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4 rounded text-sm transition-all duration-300 hover:scale-105 hover:rotate-1 hover:from-green-800 hover:to-green-900 active:scale-95"
-                    onClick={() => (window.location.href = home.link)} // Corrected the variable name to home.link
+                    className="w-full bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4 rounded text-sm transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95"
+                    onClick={() => (window.location.href = home.link)}
                   >
                     Support Now
                   </button>
