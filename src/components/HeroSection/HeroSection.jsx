@@ -12,10 +12,7 @@ const HeroSection = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Changed items-center to items-start */}
-      <div className="text-left">
-        {" "}
-        {/* Added text-left for left alignment */}
+      <div className="text-justify">
         <span className="block px-1 mb-4 text-base md:text-base text-green-800 font-bold">
           Better every day
         </span>
@@ -23,16 +20,22 @@ const HeroSection = () => {
           Let's change it up a bit
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, modi
-          illo iste facilis veniam magnam expedita accusantium iure delectus
-          provident quia tempora repellendus laudantium dolorum. Delectus ea
-          architecto culpa, sed placeat tempora facilis cupiditate voluptas,
-          molestiae saepe optio. Libero distinctio assumenda pariatur magni
-          voluptas qui corporis officia accusamus ullam aspernatur.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
+          eligendi incidunt delectus aperiam minus deleniti laudantium sunt
+          provident beatae, pariatur commodi enim temporibus odio modi quaerat a
+          quo quam quae tempore! Provident quas assumenda fugiat. Recusandae
+          vero ea aliquid, repudiandae, dolore nulla velit facere odio, tenetur
+          quibusdam architecto delectus fuga adipisci? Perferendis in, cumque
+          perspiciatis molestias ex suscipit. Explicabo minus nihil porro quos
+          aliquam incidunt eos accusantium molestias dolor. Placeat eaque
+          temporibus dolore architecto provident voluptates natus molestias nisi
+          laboriosam voluptatum neque, recusandae possimus quae beatae! Nihil
+          eos alias voluptatem, tempore illo incidunt officiis et rerum facilis
+          similique omnis accusamus!
         </p>
-        <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
+        {/* <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95">
           Find a class
-        </button>
+        </button> */}
       </div>
       <ShuffleGrid />
     </section>

@@ -17,7 +17,7 @@ const ImageSection = ({ documents }) => {
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-12">
-        <h2 className="text-3xl text-center font-bold md:text-5xl mb-8">
+        <h2 className="text-3xl text-center font-bold md:text-4xl mb-8">
           Related Documents
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-10">

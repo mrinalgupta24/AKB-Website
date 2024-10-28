@@ -11,8 +11,8 @@ const AboutUs = () => {
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
             {/* Content */}
             <div className="flex flex-col gap-8 lg:w-3/5">
-              <h2 className="text-3xl font-bold md:text-5xl text-center lg:text-left">About Us</h2>
-              <p className="text-base  sm:text-center lg:text-left">
+              <h2 className="text-3xl font-bold md:text-4xl text-center lg:text-left">About Us</h2>
+              <p className="text-base text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Proin fermentum leo vel orci. Dui faucibus in ornare quam

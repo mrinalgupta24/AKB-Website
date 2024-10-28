@@ -1,17 +1,18 @@
 import React from "react";
 import bgImage from "../../images/bg1.jpg";
 import Image from "../../images/helpus.jpg";
+import CTATwo from "../CTA2/CTATwo";
 
 const HelpUs = () => {
   return (
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-full px-12 py-8 mt-12">
+        <div className="mx-auto w-full max-w-full px-12 mt-12">
           {/* Heading Container */}
           <div className="mb-8 text-center md:mb-12">
             {/* Heading */}
-            <h2 className="text-3xl font-bold md:text-5xl">
+            <h2 className="text-3xl font-bold md:text-4xl">
               How can you help us?
             </h2>
             {/* Subheading */}
@@ -23,8 +24,9 @@ const HelpUs = () => {
               and serve those in need.
             </p>
           </div>
+          <CTATwo />
           {/* Contents */}
-          <div className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-16 md:grid-cols-3 md:gap-4">
+          <div className="mt-12 mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-16 md:grid-cols-3 md:gap-4">
             {/* Content */}
             <div
               className="mx-auto w-full max-w-md gap-4 rounded-md bg-gray-100 p-8 text-black sm:px-4 sm:py-8"

@@ -3,10 +3,12 @@ import AboutDonation from "../components/AboutDonation/AboutDonation";
 import LowCostMission from "../components/LowCostMission/LowCostMission";
 import FAQ from "../components/FAQ/FAQ";
 import { Link } from "react-router-dom";
+import Header2 from "../components/Header/Header2";
 
 const Donation3 = () => {
   return (
     <div>
+      <Header2 />
       <div className="flex flex-col items-center w-full">
         <AboutDonation />
         <div className="flex flex-col items-center space-y-8 mt-16 mb-16 w-full px-4 sm:px-0 sm:w-1/2">

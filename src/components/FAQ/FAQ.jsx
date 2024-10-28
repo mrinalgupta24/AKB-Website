@@ -46,9 +46,9 @@ const FAQ = () => {
 
   return (
     <section>
-      <div className="mx-auto flex w-full max-w-full flex-col items-center justify-center px-5 py-16 md:px-10 md:py-20">
+      <div className="mx-auto flex w-full max-w-full flex-col items-center justify-center px-5 py-16 md:px-10 md:py-12">
         <div className="mx-auto flex max-w-xl flex-col items-center justify-center px-6 text-center lg:max-w-3xl lg:px-10">
-          <h1 className="max-w-3xl mx-auto text-3xl font-bold text-center md:text-5xl">
+          <h1 className="max-w-3xl mx-auto text-3xl font-bold text-center md:text-4xl">
             Frequently Asked Questions
           </h1>
         </div>

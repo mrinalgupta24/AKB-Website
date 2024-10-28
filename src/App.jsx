@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
@@ -23,7 +29,7 @@ import ProvideMedicines from "./pages/ProvideMedicines";
 import ProvideSanitaryPads from "./pages/ProvideSanitaryPads";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const location = useLocation(); // Access current location
 
   useEffect(() => {
     AOS.init({
@@ -35,36 +41,38 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/donation2" element={<Donation2 />} />
-          <Route path="/donation3" element={<Donation3 />} />
-          <Route path="/donation4" element={<Donation4 />} />
-          <Route path="/fundraiser/:id" element={<Fundraiser />} />
-          <Route path="/donation5" element={<Donation5 />} />
-          <Route path="/FoodforNeedy" element={<FoodforNeedy />} />
-          <Route path="/ProvideGroceries" element={<ProvideGroceries />} />
-          <Route
-            path="/FeedStrayCatsandDogs"
-            element={<FeedStrayCatsandDogs />}
-          />
-          <Route path="/PlantTrees" element={<PlantTrees />} />
-          <Route path="/ProvideClothes" element={<ProvideClothes />} />
-          <Route path="/ProvideMedicines" element={<ProvideMedicines />} />
-          <Route
-            path="/ProvideSanitaryPads"
-            element={<ProvideSanitaryPads />}
-          />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ScrollToTop />
+      {/* Render Header only for the Home page */}
+      {location.pathname === "/home" && <Header />}
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/donation" element={<Donation />} />
+        <Route path="/donation2" element={<Donation2 />} />
+        <Route path="/donation3" element={<Donation3 />} />
+        <Route path="/donation4" element={<Donation4 />} />
+        <Route path="/fundraiser/:id" element={<Fundraiser />} />
+        <Route path="/donation5" element={<Donation5 />} />
+        <Route path="/FoodforNeedy" element={<FoodforNeedy />} />
+        <Route path="/ProvideGroceries" element={<ProvideGroceries />} />
+        <Route
+          path="/FeedStrayCatsandDogs"
+          element={<FeedStrayCatsandDogs />}
+        />
+        <Route path="/PlantTrees" element={<PlantTrees />} />
+        <Route path="/ProvideClothes" element={<ProvideClothes />} />
+        <Route path="/ProvideMedicines" element={<ProvideMedicines />} />
+        <Route path="/ProvideSanitaryPads" element={<ProvideSanitaryPads />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
 
-export default App;
+const AppWrapper = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;

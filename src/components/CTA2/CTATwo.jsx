@@ -4,7 +4,7 @@ import bgImage from "../../images/volunteer.png"; // Adjust the path as necessar
 const CTATwo = () => {
   return (
     <div>
-      <section>
+      <section className="mt-12">
         {/* Container */}
         <div>
           {/* Component */}
@@ -28,7 +28,7 @@ const CTATwo = () => {
 
             {/* Content */}
             <div className="relative z-10">
-              <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold md:mb-8 md:text-5xl lg:mb-10 text-green-900">
+              <h2 className="mx-auto mb-6 max-w-5xl text-3xl font-bold md:mb-8 md:text-5xl lg:mb-10 text-green-900">
               Fund Our Volunteers And Organization
               </h2>
 

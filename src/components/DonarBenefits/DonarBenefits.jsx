@@ -46,7 +46,7 @@ const DonorBenefits = () => {
     >
       <div className="container mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-3xl font-bold md:text-5xl text-center mb-12">
+        <h2 className="text-3xl font-bold md:text-4xl text-center mb-12">
           What We Provide to Donors
         </h2>
         {/* Benefits Grid */}

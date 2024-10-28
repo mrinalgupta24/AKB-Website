@@ -4,6 +4,11 @@ const DonateUsFormOne = () => {
   const [count, setCount] = useState(1);
   const [totalAmount, setTotalAmount] = useState(3000);
 
+  // Calculate tomorrow's date in YYYY-MM-DD format
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().split("T")[0]; // Get the date in 'YYYY-MM-DD' format
+
   // Handle count change and update total amount
   const handleCountChange = (e) => {
     const newCount = e.target.value ? parseInt(e.target.value) : 0;
@@ -73,6 +78,7 @@ const DonateUsFormOne = () => {
                 </label>
                 <input
                   type="date"
+                  min={minDate} // Set the minimum date to tomorrow
                   className="w-full focus:outline-none text-gray-900 text-sm leading-relaxed px-5 py-3 rounded-lg shadow-sm border border-gray-200"
                 />
               </div>
@@ -96,13 +102,13 @@ const DonateUsFormOne = () => {
                 />
               </div>
 
-              {/* Name of Parcel */}
+              {/* Name on Parcel */}
               <div className="w-full flex-col justify-start items-start gap-1.5 flex">
                 <label
                   htmlFor="parcel-name"
                   className="text-gray-600 text-base font-medium"
                 >
-                  Name of Parcel
+                  Name on Parcel
                 </label>
                 <input
                   type="text"

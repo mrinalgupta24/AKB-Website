@@ -3,37 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const MobileComponent = () => {
   const [fundraisers, setFundraisers] = useState([]);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-      //   const corsProxy = "https://cors-anywhere.herokuapp.com/";
-      //   const backendUrl = "http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(`${corsProxy}${backendUrl}`, {
-      //     method: "GET",
-      //     headers: {
-      //       Origin: "https://abk-website.vercel.app",
-      //     },
-      //   });
-      //   if (!response.ok) {
-      //     throw new Error("Network response was not ok");
-      //   }
-      //   const data = await response.json();
-
-      // try {
-      //   const apiURL = "http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(apiURL);
-
-      //   if (!response.ok) {
-      //     throw new Error("Failed to fetch fundraiser details");
-      //   }
-
-      //   const data = await response.json();
-
       try {
         const apiURL =
-          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/ ";
+          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/";
         const response = await fetch(apiURL);
 
         if (!response.ok) {
@@ -41,10 +17,6 @@ const MobileComponent = () => {
         }
 
         const data = await response.json();
-        console.log(data);
-        console.log("Fetched data:", data);
-
-
         const filteredData = data.filter((item) => item.type === "fundraiser");
         setFundraisers(filteredData);
       } catch (error) {
@@ -113,10 +85,9 @@ const MobileComponent = () => {
     );
   };
 
-  // Function to handle navigation
   const handleNavigate = (route) => {
-    const id = route.split("-")[1]; // Extract ID from the route
-    navigate(`/fundraiser/${id}`); // Use navigate to go to the fundraiser page
+    const id = route.split("-")[1];
+    navigate(`/fundraiser/${id}`);
   };
 
   return (
@@ -139,7 +110,7 @@ const MobileComponent = () => {
                     className="h-28 w-40 object-cover rounded-md mb-4"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "fallback-image-url"; // Fallback image in case of error
+                      e.target.src = "fallback-image-url";
                     }}
                   />
                   <ProgressBar
@@ -150,12 +121,12 @@ const MobileComponent = () => {
                     <h3 className="mb-2 text-base font-semibold">
                       {fundraiser.name}
                     </h3>
-                    <p className="mb-4 text-gray-500 text-sm">
+                    <p className="mb-4 text-gray-500 text-justify text-sm">
                       {fundraiser.description}
                     </p>
                     <button
                       className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
-                      onClick={() => handleNavigate(fundraiser.route)} // Call the navigation function
+                      onClick={() => handleNavigate(fundraiser.route)}
                     >
                       Donate Now
                     </button>
@@ -167,6 +138,13 @@ const MobileComponent = () => {
                 No fundraisers available.
               </div>
             )}
+          </div>
+
+          {/* View More Button */}
+          <div className="flex justify-center mt-8">
+            <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95">
+              View More
+            </button>
           </div>
         </div>
       </section>

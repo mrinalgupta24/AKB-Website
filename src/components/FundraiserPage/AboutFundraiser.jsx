@@ -16,7 +16,7 @@ const AboutFundraiser = ({ data }) => {
         {/* Dynamically Loaded Image with Centered Fit */}
         {data.image ? (
           <div
-            className={`w-full h-[300px] rounded-lg overflow-hidden mt-8 md:mt-0 md:mb-0 transition-opacity duration-500 ${
+            className={`w-full h-[400px] rounded-lg overflow-hidden mt-8 md:mt-0 md:mb-0 transition-opacity duration-500 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -27,7 +27,7 @@ const AboutFundraiser = ({ data }) => {
             />
           </div>
         ) : (
-          <div className="w-full h-[300px] bg-gray-200 flex items-center justify-center rounded-lg">
+          <div className="w-full h-[400px] bg-gray-200 flex items-center justify-center rounded-lg">
             <p className="text-gray-500">Image not available</p>
           </div>
         )}
@@ -36,7 +36,7 @@ const AboutFundraiser = ({ data }) => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <h2 className="mb-6 ml-8 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl text-center md:text-left">
+          <h2 className="mb-6 ml-8 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-4xl text-center md:text-left">
             Fundraiser Details
           </h2>
 

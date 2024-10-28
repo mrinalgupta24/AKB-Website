@@ -55,7 +55,7 @@ const CostBreakdown = () => {
             Total
           </span>
           <span className="font-bold text-green-900 border border-green-900 p-2">
-            - 13 Rupees
+            13 Rupees
           </span>
         </div>
       </div>

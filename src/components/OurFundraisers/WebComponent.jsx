@@ -4,27 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const WebComponent = () => {
   const [fundraisers, setFundraisers] = useState([]);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-      //   const corsProxy = "https://cors-anywhere.herokuapp.com/";
-      //   const backendUrl = "http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(`${corsProxy}${backendUrl}`, {
-      //     method: "GET",
-      //     headers: {
-      //       Origin: "https://abk-website.vercel.app",
-      //     },
-      //   });
-      //   if (!response.ok) {
-      //     throw new Error("Network response was not ok");
-      //   }
-      //   const data = await response.json();
-      
       try {
         const apiURL =
-          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/ ";
+          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/";
         const response = await fetch(apiURL);
 
         if (!response.ok) {
@@ -32,20 +18,6 @@ const WebComponent = () => {
         }
 
         const data = await response.json();
-        console.log(data);
-
-        // try {
-        //   const apiURL = "http://98.83.206.195:8000/api/home_page/";
-        //   const response = await fetch(apiURL);
-
-        //   if (!response.ok) {
-        //     throw new Error("Failed to fetch fundraiser details");
-        //   }
-
-        //   const data = await response.json();
-
-        // console.log("Fetched data:", data);
-
         const filteredData = data.filter((item) => item.type === "fundraiser");
         setFundraisers(filteredData);
       } catch (error) {
@@ -110,16 +82,15 @@ const WebComponent = () => {
     );
   };
 
-  // Function to handle navigation
   const handleNavigate = (route) => {
-    const id = route.split("-")[1]; // Extract ID from the route
-    navigate(`/fundraiser/${id}`); // Use navigate to go to the fundraiser page
+    const id = route.split("-")[1];
+    navigate(`/fundraiser/${id}`);
   };
 
   return (
-    <section className="mt-8 mb-24 flex justify-center">
+    <section className="mt-8 mb-12 flex justify-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope text-5xl font-bold text-gray-900 text-center mb-16">
+        <h2 className="font-manrope text-4xl font-bold text-gray-900 text-center mb-16">
           Our Fundraisers
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -150,15 +121,15 @@ const WebComponent = () => {
                     current={fundraiser.fundraised_amount}
                     target={fundraiser.required_amount}
                   />
-                  <h4 className="text-xl text-gray-900 font-medium leading-8 mt-6 mb-5">
+                  <h4 className="text-lg text-gray-900 font-medium leading-8 mt-6 mb-5">
                     {fundraiser.name}
                   </h4>
-                  <p className="text-gray-500 leading-6 mb-6">
+                  <p className="text-gray-500 text-justify leading-6 mb-6">
                     {fundraiser.description}
                   </p>
                   <button
                     className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
-                    onClick={() => handleNavigate(fundraiser.route)} // Call the navigation function
+                    onClick={() => handleNavigate(fundraiser.route)}
                   >
                     Donate Now
                   </button>
@@ -170,6 +141,13 @@ const WebComponent = () => {
               No fundraisers available.
             </div>
           )}
+        </div>
+
+        {/* View More Button */}
+        <div className="flex justify-center mt-8">
+          <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-8 rounded transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95">
+            View More
+          </button>
         </div>
       </div>
     </section>

@@ -13,9 +13,9 @@ const DonateUs = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-full px-12 py-8 mt-12">
+        <div className="mx-auto w-full max-w-7xl px-12 mt-12">
           {/* Title */}
-          <h2 className="text-center text-3xl font-bold md:text-5xl">
+          <h2 className="text-center text-3xl font-bold md:text-4xl">
             Donate To Us Directly !!
           </h2>
           <p className="mx-auto mb-8 mt-4 text-center font-bold md:text-center lg:text-center text-green-800">

@@ -6,6 +6,7 @@ import VideoSection from "../components/FundraiserPage/VideoSection";
 import FundraiserForm from "../components/FundraiserPage/FundraiserForm";
 import FAQ from "../components/FAQ/FAQ";
 import ImageSection from "../components/FundraiserPage/ImageSection";
+import Header from "../components/Header/Header";
 
 const Fundraiser = () => {
   const { id } = useParams(); // Get the dynamic part of the URL
@@ -25,8 +26,7 @@ const Fundraiser = () => {
       //   const data = await response.json();
 
       try {
-        const apiURL =
-          `https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/fundraiser_details/?id=${id} `;
+        const apiURL = `https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/fundraiser_details/?id=${id} `;
         const response = await fetch(apiURL);
 
         if (!response.ok) {
@@ -91,6 +91,7 @@ const Fundraiser = () => {
 
   return (
     <div>
+      <Header />
       <AboutFundraiser data={fundraiserData} />
       <Story content={fundraiserData.story} />
       <VideoSection data={fundraiserData} />

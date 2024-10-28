@@ -76,9 +76,9 @@ const WebComponent = () => {
   }
 
   return (
-    <section className="py-24 flex justify-center bg-gray-100">
+    <section className="py-12 flex justify-center bg-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope text-5xl font-bold text-gray-900 text-center mb-16">
+        <h2 className="font-manrope text-4xl font-bold text-gray-900 text-center mb-16">
           Our Missions
         </h2>
 
@@ -107,12 +107,12 @@ const WebComponent = () => {
                     ? "Custom Donation"
                     : `₹${mission.price} / Person`}
                 </span>
-                <h4 className="text-xl text-gray-900 font-medium leading-8 mb-3">
+                <h4 className="text-lg text-gray-900 font-medium leading-8 mb-3 truncate">
                   {mission.name}
                 </h4>
                 {/* Full description without scroll */}
                 <div
-                  className="text-gray-500 leading-6 mb-6"
+                  className="text-gray-500 text-base text-justify leading-6 mb-6"
                   style={{ wordBreak: "break-word" }}
                 >
                   {mission.description}
@@ -139,7 +139,7 @@ const WebComponent = () => {
                     }
                   }}
                 >
-                  {mission.price === "Custom" ? "View Now" : "View Now"}
+                  {mission.price === "Custom" ? "View More" : "View More"}
                 </button>
               </div>
             </div>

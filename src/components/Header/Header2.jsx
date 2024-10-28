@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header2 = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -13,11 +13,19 @@ const Header = () => {
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
-      setIsVisible(false); // Scrolling down, hide navbar
+      setIsVisible(false);
     } else {
-      setIsVisible(true); // Scrolling up, show navbar
+      setIsVisible(true);
     }
     setLastScrollY(window.scrollY);
+  };
+
+  const handleSmoothScroll = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsNavOpen(false); // Close the menu on mobile after clicking
+    }
   };
 
   useEffect(() => {
@@ -72,42 +80,26 @@ const Header = () => {
               <Link
                 to="/home"
                 className="block py-2 px-3 text-white bg-green-800 rounded md:bg-transparent md:text-green-800 md:p-0"
-                aria-current="page"
+                onClick={() => setIsNavOpen(false)} // Close the menu on mobile after clicking
               >
                 Home
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handleSmoothScroll("about")}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 About Us
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
-              >
-                Fundraisers
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
-              >
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handleSmoothScroll("contact")}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 Contact Us
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -116,4 +108,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header2;

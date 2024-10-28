@@ -95,22 +95,22 @@ const MobileComponent = () => {
               <img
                 src={mission.image} // Assuming the API provides the correct image URL
                 alt={mission.name}
-                className="h-28 w-40 object-cover rounded-md mb-4 mt-4"
+                className="h-32 w-48 object-cover rounded-md mb-4 mt-4"
               />
 
               {/* Mission Text Content */}
               <div className="px-8">
-                <h4 className="mb-2 text-lg font-semibold text-green-800">
+                <h4 className="mb-2 text-base font-semibold text-green-800">
                   {mission.price === "Custom"
                     ? "Custom Donation"
                     : `₹${mission.price} / Person`}
                 </h4>
-                <h3 className="mb-2 text-base font-semibold text-gray-900">
+                <h3 className="mb-2 text-base font-semibold text-gray-900 truncate">
                   {mission.name}
                 </h3>
-                <p className="text-gray-500">{mission.description}</p>
+                <p className="text-sm text-justify text-gray-500">{mission.description}</p>
                 <button
-                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-3 px-3 mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4  mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
                   onClick={() => {
                     if (mission.route === "/orphanage") {
                       navigate("/ProvideGroceries");
@@ -129,7 +129,7 @@ const MobileComponent = () => {
                     }
                   }}
                 >
-                  {mission.price === "Custom" ? "View Now" : "View Now"}
+                  {mission.price === "Custom" ? "View More" : "View More"}
                 </button>
               </div>
             </div>

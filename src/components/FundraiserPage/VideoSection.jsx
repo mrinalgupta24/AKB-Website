@@ -8,7 +8,9 @@ const VideoSection = ({ data }) => {
   const openModal = () => setIsModalOpen(true);
 
   // Function to close the modal
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,7 +44,7 @@ const VideoSection = ({ data }) => {
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center">
           <div className="w-full px-4">
-            <h2 className="mb-6 max-w-4xl mx-auto text-3xl font-bold text-center md:text-5xl">
+            <h2 className="mb-6 max-w-4xl mx-auto text-3xl font-bold text-center md:text-4xl">
               Video
             </h2>
             <div className="flex justify-center">
@@ -72,14 +74,16 @@ const VideoSection = ({ data }) => {
           onClick={closeModal}
         >
           <div className="relative bg-white rounded-lg overflow-hidden max-w-4xl w-full">
+            {/* Close button styled with Tailwind CSS */}
             <button
-              className="absolute top-2 right-2 text-black text-2xl"
+              className="absolute top-3 right-3 text-white bg-red-600 rounded-full p-2"
               onClick={(e) => {
-                e.stopPropagation(); // Prevent modal from closing when clicking the button
-                closeModal();
+                e.stopPropagation(); // Prevent click from propagating to the modal backdrop
+                closeModal(); // Close modal on button click
+                videoRef.current.pause(); // Ensure video pauses
               }}
             >
-              &times; {/* Close button */}
+              &times;
             </button>
             <video
               className="w-full h-auto"
@@ -92,7 +96,7 @@ const VideoSection = ({ data }) => {
                 maxHeight: "90vh", // Limit height to 90% of viewport
                 objectFit: "contain", // Fit the video within modal bounds
               }}
-              onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking video
+              // Removed onClick event here
             >
               <source src={data.video} type="video/mp4" />
               Your browser does not support the video tag.

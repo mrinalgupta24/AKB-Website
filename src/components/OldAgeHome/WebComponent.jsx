@@ -80,7 +80,7 @@ const WebComponent = () => {
   );
 
   return (
-    <section className="mt-8 mb-24 flex justify-center">
+    <section className="mb-24 flex justify-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Search */}
         <form className="max-w-7xl mx-auto" onSubmit={handleSubmit}>
@@ -118,7 +118,7 @@ const WebComponent = () => {
             />
             <button
               type="submit"
-              className="text-white absolute end-2.5 bottom-2.5 bg-gradient-to-r from-green-900 to-green-800 font-medium focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+              className="text-white absolute end-2.5 bottom-2.5 bg-gradient-to-r from-green-900 to-green-800 font-medium focus:ring-4 focus:outline-none rounded-lg text-sm px-3 py-2 transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
             >
               Search
             </button>
