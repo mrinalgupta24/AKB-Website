@@ -16,7 +16,7 @@ const HelpUs = () => {
               How can you help us?
             </h2>
             {/* Subheading */}
-            <p className="mt-4 font-bold text-green-800">
+            <p className="mt-4 font-bold text-justify text-green-800">
               At AKB, you can make a meaningful impact in the lives of others by
               donating or joining us as a volunteer. Whether you help by giving
               your time, spreading our message, or contributing funds, your
@@ -46,7 +46,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center ">
+              <div className="flex w-full flex-col text-justify items-start gap-5 p-0 mt-4 text-center ">
                 <div>
                   Your generosity goes beyond the act of giving—it creates
                   change. AKB is committed to using every donation responsibly,
@@ -74,7 +74,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center">
+              <div className="flex w-full text-justify flex-col items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Volunteering is a powerful way to shape the community you wish
                   to see. By giving your time and energy, you actively
@@ -101,7 +101,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col items-start gap-5 p-0 mt-4 text-center">
+              <div className="flex w-full flex-col text-justify items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Raising awareness is the first step towards action. Share our
                   story, spread our message, and help us inspire others to join

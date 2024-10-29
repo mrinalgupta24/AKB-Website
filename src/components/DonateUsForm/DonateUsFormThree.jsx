@@ -42,7 +42,7 @@ const DonateUsFormThree = () => {
             <div className="w-full flex-col justify-start items-start gap-6 flex">
               <div className="w-full flex-col justify-start items-start gap-8 flex">
                 {/* Donor Name */}
-                <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <div className="w-full flex-col justify-start items-start gap-1.5 flex mt-6">
                   <label
                     htmlFor="donor-name"
                     className="text-gray-600 text-base font-medium"
@@ -261,7 +261,7 @@ const DonateUsFormThree = () => {
 
           {/* Grand Total - Full Width */}
           <div className="w-full max-w-7xl flex justify-between items-center bg-[#eaf4f4] px-8 py-6 rounded-lg shadow-md mt-8">
-            <span className="text-lg font-semibold text-gray-700">
+            <span className="text-base font-semibold text-gray-700">
               Grand Total:
             </span>
             <span className="text-xl font-bold text-gray-900">

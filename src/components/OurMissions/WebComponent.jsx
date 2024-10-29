@@ -136,6 +136,9 @@ const WebComponent = () => {
                       navigate("/ProvideSanitaryPads");
                     } else if (mission.route === "/clothes") {
                       navigate("/ProvideClothes");
+                    } else {
+                      console.warn("Unmatched route:", mission.route);
+                      // Optional: Navigate to a default page or show an alert
                     }
                   }}
                 >

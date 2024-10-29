@@ -93,24 +93,24 @@ const MobileComponent = () => {
   return (
     <div>
       <section>
-        <div className="mx-auto w-full max-w-7xl px-5 mb-12 md:px-10 md:py-12">
-          <h2 className="text-center mb-8 text-3xl font-bold">
+        <div className="mx-auto w-full max-w-7xl px-3 mb-12 md:px-10 md:py-12">
+          <h2 className="text-center mb-8 text-2xl font-bold">
             Our Fundraisers
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
             {fundraisers.length > 0 ? (
               fundraisers.map((fundraiser) => (
                 <div
                   key={fundraiser.id}
-                  className="flex flex-col items-center text-center border border-gray-300 rounded-md p-4 transition-all duration-300 hover:shadow-lg"
+                  className="flex flex-col items-center text-center border border-gray-300 rounded-md p-2 transition-all duration-300 hover:shadow-lg"
                 >
                   <img
                     src={fundraiser.image}
                     alt={fundraiser.name}
-                    className="h-28 w-40 object-cover rounded-md mb-4"
+                    className="h-28 w-40 object-cover rounded-md mb-"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "fallback-image-url";
+                      e.target.src = "fallback-image-url"; // Replace with your fallback image URL
                     }}
                   />
                   <ProgressBar
@@ -118,14 +118,14 @@ const MobileComponent = () => {
                     target={fundraiser.required_amount}
                   />
                   <div className="px-2">
-                    <h3 className="mb-2 text-base font-semibold">
+                    <h3 className="mb-2 text-sm font-semibold ">
                       {fundraiser.name}
                     </h3>
-                    <p className="mb-4 text-gray-500 text-justify text-sm">
+                    <p className="mb-2 text-gray-500 text-justify text-sm">
                       {fundraiser.description}
                     </p>
                     <button
-                      className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                      className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium text-sm py-2 px-3 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
                       onClick={() => handleNavigate(fundraiser.route)}
                     >
                       Donate Now
@@ -141,8 +141,8 @@ const MobileComponent = () => {
           </div>
 
           {/* View More Button */}
-          <div className="flex justify-center mt-8">
-            <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95">
+          <div className="flex justify-center mt-4">
+            <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-6 rounded transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95">
               View More
             </button>
           </div>

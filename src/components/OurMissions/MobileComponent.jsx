@@ -10,48 +10,16 @@ const MobileComponent = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-      //   const corsProxy = "https://cors-anywhere.herokuapp.com/";
-      //   const backendUrl = "http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(`${corsProxy}${backendUrl}`, {
-      //     method: "GET",
-      //     headers: {
-      //       Origin: "https://abk-website.vercel.app",
-      //     },
-      //   });
-      //   if (!response.ok) {
-      //     throw new Error("Network response was not ok");
-      //   }
-      //   const data = await response.json();
-
-      // try {
-      //   const apiURL = "http://98.83.206.195:8000/api/home_page/";
-      //   const response = await fetch(apiURL);
-
-      //   if (!response.ok) {
-      //     throw new Error("Failed to fetch fundraiser details");
-      //   }
-
-      //   const data = await response.json();
-
       try {
         const apiURL =
-          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/ ";
+          "https://api.allorigins.win/raw?url=http://98.83.206.195:8000/api/home_page/";
         const response = await fetch(apiURL);
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch fundraiser details");
-        }
+        if (!response.ok) throw new Error("Failed to fetch fundraiser details");
 
         const data = await response.json();
-        console.log(data);
-
-
-
         const filteredMissions = data.filter((item) => item.type === "mission");
         setMissions(filteredMissions);
       } catch (error) {
-        console.error("Error fetching data:", error);
         setError("Failed to fetch missions. Please try again later.");
       } finally {
         setLoading(false);
@@ -76,41 +44,41 @@ const MobileComponent = () => {
   }
 
   return (
-    <section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
-        <h2 className="text-center mb-8 text-3xl font-bold">Our Missions</h2>
+    <section className="bg-white">
+      <div className="w-full max-w-full px-3 py-8">
+        <h2 className="text-center mb-4 text-2xl font-bold">Our Missions</h2>
 
-        <div className="mx-auto grid max-w-xl gap-4">
+        <div className="grid gap-3">
           {missions.map((mission, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center pb-8 border-b border-gray-300 transition-transform duration-300 transform hover:scale-105"
+              className="flex flex-col items-center text-center p-3 border-b border-gray-300 rounded-md"
               style={{
                 backgroundImage: `url(${bgImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              {/* Mission Image */}
               <img
-                src={mission.image} // Assuming the API provides the correct image URL
+                src={mission.image}
                 alt={mission.name}
-                className="h-32 w-48 object-cover rounded-md mb-4 mt-4"
+                className="w-full max-w-[180px] h-[120px] aspect-[4/3] object-cover rounded-md mb-2"
               />
 
-              {/* Mission Text Content */}
-              <div className="px-8">
-                <h4 className="mb-2 text-base font-semibold text-green-800">
+              <div className="text-sm px-2">
+                <h4 className="mb-1 text-green-800 font-semibold">
                   {mission.price === "Custom"
                     ? "Custom Donation"
                     : `₹${mission.price} / Person`}
                 </h4>
-                <h3 className="mb-2 text-base font-semibold text-gray-900 truncate">
+                <h3 className="mb-1 text-gray-900 truncate font-semibold">
                   {mission.name}
                 </h3>
-                <p className="text-sm text-justify text-gray-500">{mission.description}</p>
+                <p className="text-gray-500 text-justify ">
+                  {mission.description}
+                </p>
                 <button
-                  className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-4  mt-4 rounded transition-all duration-300 hover:scale-105 hover:rotate-3 hover:from-green-800 hover:to-green-900 active:scale-95"
+                  className="bg-green-900 text-white text-sm font-medium py-2 px-2 mt-2 rounded transition-all"
                   onClick={() => {
                     if (mission.route === "/orphanage") {
                       navigate("/ProvideGroceries");
@@ -129,7 +97,7 @@ const MobileComponent = () => {
                     }
                   }}
                 >
-                  {mission.price === "Custom" ? "View More" : "View More"}
+                  View More
                 </button>
               </div>
             </div>

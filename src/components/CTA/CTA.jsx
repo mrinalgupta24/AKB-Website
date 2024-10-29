@@ -31,7 +31,7 @@ const CTA = () => {
               <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold md:mb-8 md:text-5xl lg:mb-10 text-green-900">
                 Start a Fundraiser!
               </h2>
-              <p className="mx-auto mb-6 max-w-xl text-sm text-gray-500 sm:text-base md:mb-8">
+              <p className="mx-auto mb-6 max-w-xl text-sm text-justify text-gray-500 sm:text-base md:mb-8">
                 Help someone in need by raising funds through AKB Foundation.
                 Whether it's for a local family, school fees for a child, or
                 medical help, you can now create a fundraiser and bring change

@@ -59,7 +59,7 @@ const DonorBenefits = () => {
                 className="w-24 h-24 rounded-full mb-4 object-cover"
               />
               <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-              <p className="text-gray-500 text-sm">{benefit.description}</p>
+              <p className="text-gray-500 text-sm text-justify">{benefit.description}</p>
             </div>
           ))}
         </div>

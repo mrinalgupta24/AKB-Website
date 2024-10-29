@@ -5,14 +5,14 @@ import bgImage from "../../images/bg1.jpg";
 const HeroSection = () => {
   return (
     <section
-      className="w-full px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-20"
+      className="w-full px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-4 lg:mt-12 md:mt-12"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="text-justify">
+      <div className="text-justify mt-4">
         <span className="block px-1 mb-4 text-base md:text-base text-green-800 font-bold">
           Better every day
         </span>
@@ -158,7 +158,7 @@ const ShuffleGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1 mt-4 ">
       {squares.map((sq) => sq)}
     </div>
   );

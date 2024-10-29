@@ -33,9 +33,9 @@ const Header = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-[#f9fafb] border-b border-gray-700`}
     >
-      <div className="flex flex-wrap items-center justify-between p-4 mx-auto w-full">
+      <div className="flex flex-wrap items-center justify-between p-2 md:p-4 mx-auto w-full">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo} className="h-14" alt="Logo" />
+          <img src={logo} className="h-10 md:h-14" alt="Logo" />
         </a>
         <button
           onClick={handleNavToggle}
