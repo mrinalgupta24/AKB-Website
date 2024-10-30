@@ -37,7 +37,7 @@ const DonorBenefits = () => {
 
   return (
     <section
-      className="mx-auto w-full max-w-full px-12 mt-12 py-12 bg-blue-50"
+      className="mx-auto w-full max-w-full px-6 lg:px-12 mt-12 py-12 bg-blue-50"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -46,7 +46,7 @@ const DonorBenefits = () => {
     >
       <div className="container mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-3xl font-bold md:text-4xl text-center mb-12">
+        <h2 className="text-2xl font-bold md:text-4xl text-center mb-12">
           What We Provide to Donors
         </h2>
         {/* Benefits Grid */}

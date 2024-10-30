@@ -40,7 +40,7 @@ const VideoSection = ({ data }) => {
   }, []);
 
   return (
-    <section className="bg-white py-12 overflow-hidden">
+    <section className="bg-white py-8 lg:py-8 overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center">
           <div className="w-full px-4">

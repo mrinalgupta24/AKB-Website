@@ -115,9 +115,9 @@ const Location = () => {
 
   return (
     <div>
-      <section className="mt-12">
-        <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
-          <h2 className="text-center text-3xl font-bold md:text-5xl mb-12">
+      <section className="mt-8 lg:mt-12">
+        <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
+          <h2 className="text-center text-3xl font-bold md:text-5xl mb-8 lg:mb-12">
             Select Locations
           </h2>
           <div className="relative">

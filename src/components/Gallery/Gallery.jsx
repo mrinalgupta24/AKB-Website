@@ -17,8 +17,8 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="container relative mx-auto w-full max-w-7xl px-12 p-5 mt-8">
-      <h1 className="text-3xl font-bold md:mb-8 md:text-4xl text-center mb-8">
+    <div className="container relative mx-auto w-full max-w-7xl px-6 lg:px-12 p-5">
+      <h1 className="text-2xl font-bold md:mb-8 md:text-4xl text-center mb-8">
         Our Gallery
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5">

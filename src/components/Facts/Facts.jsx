@@ -5,7 +5,7 @@ const Facts = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-12">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 md:px-10 md:py-12">
           {/* Title */}
           <h2 className="mb-8 text-center text-3xl font-bold md:mb-12 md:text-5xl lg:mb-16">
             We get results

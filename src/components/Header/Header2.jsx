@@ -13,19 +13,11 @@ const Header2 = () => {
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
-      setIsVisible(false);
+      setIsVisible(false); // Scrolling down, hide navbar
     } else {
-      setIsVisible(true);
+      setIsVisible(true); // Scrolling up, show navbar
     }
     setLastScrollY(window.scrollY);
-  };
-
-  const handleSmoothScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsNavOpen(false); // Close the menu on mobile after clicking
-    }
   };
 
   useEffect(() => {
@@ -41,9 +33,9 @@ const Header2 = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-[#f9fafb] border-b border-gray-700`}
     >
-      <div className="flex flex-wrap items-center justify-between p-4 mx-auto w-full">
+      <div className="flex flex-wrap items-center justify-between p-2 md:p-4 mx-auto w-full">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo} className="h-14" alt="Logo" />
+          <img src={logo} className="h-10 md:h-14" alt="Logo" />
         </a>
         <button
           onClick={handleNavToggle}
@@ -80,26 +72,26 @@ const Header2 = () => {
               <Link
                 to="/home"
                 className="block py-2 px-3 text-white bg-green-800 rounded md:bg-transparent md:text-green-800 md:p-0"
-                onClick={() => setIsNavOpen(false)} // Close the menu on mobile after clicking
+                aria-current="page"
               >
                 Home
               </Link>
             </li>
             <li>
-              <button
-                onClick={() => handleSmoothScroll("about")}
+              <a
+                href="#"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 About Us
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                onClick={() => handleSmoothScroll("contact")}
+              <a
+                href="#"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-800 md:p-0"
               >
                 Contact Us
-              </button>
+              </a>
             </li>
           </ul>
         </div>

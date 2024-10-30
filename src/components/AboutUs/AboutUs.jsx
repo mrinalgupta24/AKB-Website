@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-full px-12 py-8 mt-0 lg:mt-12 md:mt-12">
+        <div className="mx-auto w-full max-w-full px-6 lg:px-12 py-8 mt-0 lg:mt-12 md:mt-12">
           {/* Component */}
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
             {/* Content */}

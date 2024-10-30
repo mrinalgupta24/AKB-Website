@@ -8,11 +8,11 @@ const HelpUs = () => {
     <div>
       <section>
         {/* Container */}
-        <div className="mx-auto w-full max-w-full px-12 mt-12">
+        <div className="mx-auto w-full max-w-full px-6 lg:px-12 mt-12">
           {/* Heading Container */}
-          <div className="mb-8 text-center md:mb-12">
+          <div className="mb-8 text-center md:mb-8">
             {/* Heading */}
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-2xl font-bold md:text-4xl">
               How can you help us?
             </h2>
             {/* Subheading */}
@@ -46,7 +46,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col text-justify items-start gap-5 p-0 mt-4 text-center ">
+              <div className="flex w-full text-gray-500 flex-col text-justify items-start gap-5 p-0 mt-4 text-center ">
                 <div>
                   Your generosity goes beyond the act of giving—it creates
                   change. AKB is committed to using every donation responsibly,
@@ -74,7 +74,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full text-justify flex-col items-start gap-5 p-0 mt-4 text-center">
+              <div className="flex w-full text-gray-500 text-justify flex-col items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Volunteering is a powerful way to shape the community you wish
                   to see. By giving your time and energy, you actively
@@ -101,7 +101,7 @@ const HelpUs = () => {
                 alt="image"
                 className="inline-block h-60 w-full rounded-md object-cover"
               />
-              <div className="flex w-full flex-col text-justify items-start gap-5 p-0 mt-4 text-center">
+              <div className="flex w-full text-gray-500 flex-col text-justify items-start gap-5 p-0 mt-4 text-center">
                 <div>
                   Raising awareness is the first step towards action. Share our
                   story, spread our message, and help us inspire others to join

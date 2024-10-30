@@ -49,13 +49,8 @@ const MobileComponent = () => {
   );
 
   return (
-    <div className="py-6 px-4 sm:px-0">
+    <div className="py-6 px-6 sm:px-0">
       <div className="mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md">
-        {/* Title */}
-        <h2 className="text-center mb-6 text-xl font-semibold text-gray-800">
-          Our Old Age Homes
-        </h2>
-
         {/* Search */}
         <form className="mb-6" onSubmit={handleSubmit}>
           <div className="relative">

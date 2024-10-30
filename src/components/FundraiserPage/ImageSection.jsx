@@ -16,7 +16,7 @@ const ImageSection = ({ documents }) => {
 
   return (
     <section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-12">
+      <div className="mx-auto w-full max-w-7xl px-5 py-8 md:px-10 md:py-8">
         <h2 className="text-3xl text-center font-bold md:text-4xl mb-8">
           Related Documents
         </h2>

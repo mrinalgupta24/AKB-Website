@@ -6,7 +6,7 @@ import VideoSection from "../components/FundraiserPage/VideoSection";
 import FundraiserForm from "../components/FundraiserPage/FundraiserForm";
 import FAQ from "../components/FAQ/FAQ";
 import ImageSection from "../components/FundraiserPage/ImageSection";
-import Header from "../components/Header/Header";
+import Header2 from "../components/Header/Header2";
 
 const Fundraiser = () => {
   const { id } = useParams(); // Get the dynamic part of the URL
@@ -66,7 +66,7 @@ const Fundraiser = () => {
   }
 
   if (!fundraiserData) {
-    return <div>Loading...</div>;
+    return <div>{error}</div>;
   }
 
   // Prepare document links for ImageSection
@@ -91,7 +91,7 @@ const Fundraiser = () => {
 
   return (
     <div>
-      <Header />
+      <Header2 />
       <AboutFundraiser data={fundraiserData} />
       <Story content={fundraiserData.story} />
       <VideoSection data={fundraiserData} />

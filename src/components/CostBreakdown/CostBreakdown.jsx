@@ -23,7 +23,7 @@ const CostBreakdown = () => {
       }}
     >
       <div className="w-full max-w-4xl px-4 sm:px-8 md:px-12 py-8 mx-auto">
-        <h2 className="text-3xl font-bold md:text-5xl text-center  text-center mb-6 sm:mb-8 md:mb-12">
+        <h2 className="text-2xl font-bold md:text-4xl text-center mb-6 sm:mb-8 md:mb-12">
           Detailed Cost Breakdown
         </h2>
 

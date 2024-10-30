@@ -5,7 +5,7 @@ import bgImage from "../../images/bg1.jpg";
 const AboutDonation = () => {
   return (
     <section
-      className="w-full px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-20"
+      className="w-full px-6 lg:px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-4 lg:mt-12 md:mt-12"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -14,15 +14,14 @@ const AboutDonation = () => {
     >
       {/* Changed items-center to items-start */}
       <div className="text-left">
-        {" "}
         {/* Added text-left for left alignment */}
-        <span className="block px-1 mb-4 text-base md:text-base text-green-800 font-bold">
+        <span className="block px-1 mt-6 mb-4 text-base md:text-base text-green-800 font-bold">
           Better every day
         </span>
         <h3 className="text-4xl md:text-6xl font-semibold">
           Help Provide Meals for the Homeless
         </h3>
-        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
+        <p className="text-base text-justify md:text-lg text-slate-700 my-4 md:my-6">
           Each day, millions of people around the world face the devastating
           effects of hunger, with the homeless among the most affected. In a
           world where nearly 150 million people struggle to find their next

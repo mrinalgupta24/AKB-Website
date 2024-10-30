@@ -5,7 +5,7 @@ import bgImage from "../../images/bg1.jpg";
 const HeroSection = () => {
   return (
     <section
-      className="w-full px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-4 lg:mt-12 md:mt-12"
+      className="w-full px-6 lg:px-12 py-12 grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-full mx-auto mt-4 lg:mt-12 md:mt-12"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -16,7 +16,7 @@ const HeroSection = () => {
         <span className="block px-1 mb-4 text-base md:text-base text-green-800 font-bold">
           Better every day
         </span>
-        <h3 className="text-4xl md:text-6xl font-semibold">
+        <h3 className="text-3xl md:text-6xl font-semibold">
           Let's change it up a bit
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">

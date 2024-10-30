@@ -11,19 +11,19 @@ const AboutFundraiser = ({ data }) => {
   }, []);
 
   return (
-    <section className="bg-white py-8 mt-16 sm:py-16">
+    <section className="bg-white py-8 mt-4 sm:mt-16 sm:py-16">
       <div className="gap-8 items-center px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 lg:px-6">
         {/* Dynamically Loaded Image with Centered Fit */}
         {data.image ? (
           <div
-            className={`w-full h-[400px] rounded-lg overflow-hidden mt-8 md:mt-0 md:mb-0 transition-opacity duration-500 ${
+            className={`w-full h-full rounded-lg overflow-hidden mt-8 md:mt-0 md:mb-0 transition-opacity duration-500 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
             <img
               src={data.image}
               alt="Fundraiser"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-[500px] object-cover object-center"
             />
           </div>
         ) : (
@@ -36,28 +36,28 @@ const AboutFundraiser = ({ data }) => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <h2 className="mb-6 ml-8 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-4xl text-center md:text-left">
+          <h2 className="mb-6 lg:ml-6 md:ml-6 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-4xl text-center md:text-left">
             Fundraiser Details
           </h2>
 
           {/* Dynamically rendering the data */}
-          <p className="mb-2 ml-8 text-left">
+          <p className="mb-2 ml-6 text-left">
             <strong className="text-black text-lg">Name:</strong>{" "}
             <span className="text-gray-500 text-lg">{data.name}</span>
           </p>
-          <p className="mb-2 ml-8 text-left">
+          <p className="mb-2 ml-6 text-left">
             <strong className="text-black text-lg">Age:</strong>{" "}
             <span className="text-gray-500 text-lg">{data.age}</span>
           </p>
-          <p className="mb-2 ml-8 text-left">
+          <p className="mb-2 ml-6 text-left">
             <strong className="text-black text-lg">Address:</strong>{" "}
             <span className="text-gray-500 text-lg">{data.address}</span>
           </p>
-          <p className="mb-2 ml-8 text-left">
+          <p className="mb-2 ml-6 text-left">
             <strong className="text-black text-lg">Amount Needed:</strong>{" "}
             <span className="text-gray-500 text-lg">{data.amount_needed}</span>
           </p>
-          <p className="mb-6 ml-8 text-left">
+          <p className="mb-6 ml-6 text-left">
             <strong className="text-black text-lg">Date Needed:</strong>{" "}
             <span className="text-gray-500 text-lg">{data.date_of_needed}</span>
           </p>
