@@ -141,10 +141,17 @@ const MobileComponent = () => {
           </div>
 
           {/* View More Button */}
-          <div className="flex justify-center mt-4">
-            <button className="bg-gradient-to-r from-green-900 to-green-800 text-white font-medium py-2 px-6 rounded transition-all duration-300 hover:scale-105 hover:from-green-800 hover:to-green-900 active:scale-95">
-              View More
-            </button>
+          <div className="flex justify-center mt-12">
+            <div className="relative inline-flex group">
+              <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+              <button
+                title="Get quote now"
+                className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                role="button"
+              >
+                View More
+              </button>
+            </div>
           </div>
         </div>
       </section>
